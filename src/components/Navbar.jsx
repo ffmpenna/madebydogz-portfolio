@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.gif';
+// import logo from './logo.gif';
 
 const Navbar = () => {
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
 
         <div className="text-center">
           <img
-            src={logo}
+            src="/logo.gif"
             alt="Logo"
             className="inline-block h-15 transition-transform duration-500 ease-in-out hover:scale-125 hover:cursor-pointer"
           />
