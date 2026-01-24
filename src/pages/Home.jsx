@@ -10,7 +10,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="relative min-h-screen bg-[#050505] text-white overflow-x-hidden selection:bg-yellow-900 selection:text-white">
+    <div className="relative min-h-screen bg-[#050505] text-white overflow-x-hidden selection:bg-red-900 selection:text-white">
       {/* Grid de Fundo Global (Estilo planta baixa/técnico) */}
       <div
         className="fixed inset-0 z-0 opacity-[0.25] pointer-events-none"
@@ -27,7 +27,7 @@ export default function Home() {
           <span className="font-black tracking-tighter text-xl">MBD®</span>
           <button
             onClick={() => navigate('/')}
-            className="text-xs font-mono uppercase hover:text-yellow-500 hover:underline underline-offset-4"
+            className="text-xs font-mono uppercase hover:text-red-500 hover:underline underline-offset-4"
           >
             [ Return to 3D ]
           </button>
@@ -44,7 +44,7 @@ export default function Home() {
               className="text-[14vw] leading-[0.85] font-black tracking-tighter text-white uppercase mix-blend-difference"
             >
               Made <br />
-              <span className="text-yellow-600">By</span> <br />
+              <span className="text-[#B40001]">By</span> <br />
               Dogz
             </motion.h1>
 
@@ -58,7 +58,7 @@ export default function Home() {
               <p className="font-mono text-xs text-neutral-400 mb-2">
                 EST. 2024 // RIO DE JANEIRO
               </p>
-              <p className="text-sm font-bold uppercase leading-tight text-white border-l-2 border-yellow-600 pl-4">
+              <p className="text-sm font-bold uppercase leading-tight text-white border-l-2 border-red-600 pl-4">
                 Cultura Underground. Trap, Rap & Estética Urbana.
               </p>
             </motion.div>
@@ -66,7 +66,7 @@ export default function Home() {
         </section>
 
         {/* === MARQUEE DIVIDER === */}
-        <Marquee text="DIRECTED BY DOGZ — VISUALS — EDITING — VFX " direction="left" />
+        <Marquee text="MADEBYDOGZ — VISUALS — EDITING — VFX " direction="left" />
 
         {/* === THE WORK (Gallery) === */}
         <section className="py-20 px-6 md:px-20">
@@ -84,7 +84,7 @@ export default function Home() {
         </section>
 
         {/* === MARQUEE DIVIDER 2 === */}
-        <Marquee text="MADE BY DOGZ — WORLDWIDE — UNDERGROUND — " direction="right" />
+        <Marquee text="MADEBYDOGZ — WORLDWIDE — UNDERGROUND — " direction="right" />
 
         {/* === CONTACT / FOOTER === */}
         <footer className="py-32 px-6 md:px-20 bg-[#0a0a0a] border-t border-white/10 relative overflow-hidden">
@@ -95,20 +95,20 @@ export default function Home() {
               </p>
               <a
                 href="mailto:contato@madebydogz.com"
-                className="text-5xl md:text-8xl font-black text-white hover:text-yellow-600 transition-colors uppercase tracking-tighter leading-none"
+                className="text-5xl md:text-8xl font-black text-white hover:text-[#B40001] transition-colors uppercase tracking-tighter leading-none"
               >
                 Vamos Conversar
               </a>
             </div>
 
             <div className="flex gap-8 font-mono text-sm uppercase">
-              <a href="#" className="hover:text-yellow-500">
+              <a href="#" className="hover:text-red-500">
                 Instagram
               </a>
-              <a href="#" className="hover:text-yellow-500">
+              <a href="#" className="hover:text-red-500">
                 Twitter
               </a>
-              <a href="#" className="hover:text-yellow-500">
+              <a href="#" className="hover:text-red-500">
                 Youtube
               </a>
             </div>

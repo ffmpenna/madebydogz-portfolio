@@ -18,7 +18,7 @@ const Marquee = ({ text, direction = 'left' }) => {
         ))}
       </motion.div>
       {/* Estilo para deixar o texto apenas com contorno (Stroke) */}
-      <style>{`.stroke-text { -webkit-text-stroke: 1px rgb(255, 251, 0); }`}</style>
+      <style>{`.stroke-text { -webkit-text-stroke: 3px #ff0000; }`}</style>
     </div>
   );
 };

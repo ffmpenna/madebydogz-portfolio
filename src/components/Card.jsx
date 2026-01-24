@@ -6,7 +6,7 @@ const Card = ({ title, client, type, image, size = '' }) => (
     whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true, margin: '-50px' }}
     whileHover={{ scale: 1.02 }}
-    className={`relative group bg-[#111] border border-[#222] hover:border-yellow-500/50 transition-colors duration-300 flex flex-col justify-between overflow-hidden ${size}`}
+    className={`relative group bg-[#111] border border-[#222] hover:border-red-500/50 transition-colors duration-300 flex flex-col justify-between overflow-hidden ${size}`}
   >
     {/* Placeholder do Vídeo (Aqui entraria a thumb do clipe) */}
     <div className="absolute inset-0 bg-neutral-900 group-hover:bg-neutral-800 transition-colors">
@@ -30,7 +30,7 @@ const Card = ({ title, client, type, image, size = '' }) => (
 
     {/* Footer do Card */}
     <div className="relative z-10 p-6 mt-auto">
-      <h3 className="text-3xl font-black text-white uppercase leading-none mb-1 group-hover:text-yellow-500 transition-colors mix-blend-difference">
+      <h3 className="text-3xl font-black text-white uppercase leading-none mb-1 group-hover:text-red-500 transition-colors mix-blend-difference">
         {title}
       </h3>
       <p className="text-sm font-mono text-neutral-500 uppercase tracking-widest">
