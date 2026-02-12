@@ -13,7 +13,6 @@ const About = () => {
 
   return (
     <div className="bg-white text-black">
-      {/* Hero Section - Impacto */}
       <section className="py-16 border-b-4 border-black">
         <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6">
           NÓS SOMOS <br />
@@ -27,7 +26,6 @@ const About = () => {
         </p>
       </section>
 
-      {/* Manifest - Texto com fundo escuro */}
       <section className="bg-black text-white -mx-4 px-4 py-20 my-10">
         <div className="max-w-4xl mx-auto">
           <h3 className="text-sm uppercase tracking-widest text-blue-500 mb-4 font-bold">
@@ -41,7 +39,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Grid de Diferenciais */}
       <section className="py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {diferenciais.map((item, index) => (
@@ -53,7 +50,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Call to Action ou Foto */}
       <section className="relative h-64 bg-slate-200 overflow-hidden rounded-sm mt-10">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=1000')] bg-cover bg-center grayscale contrast-125 opacity-40"></div>
         <div className="relative h-full flex items-center justify-center">

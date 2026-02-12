@@ -8,7 +8,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Rota pai que contém o Layout */}
         <Route path="/" element={<Layout />}>
           <Route path="about" element={<About />} />
         </Route>

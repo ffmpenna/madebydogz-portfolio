@@ -11,12 +11,10 @@ import {
 } from '@react-three/drei';
 import { EffectComposer, Bloom, Noise, Vignette } from '@react-three/postprocessing';
 import * as THREE from 'three';
-import { useNavigate } from 'react-router-dom'; // <--- IMPORTANTE
+import { useNavigate } from 'react-router-dom';
 
-// --- Componente Otimizado do Cachorro ---
 function ChromeDog({ modelPath, scale = 1 }) {
   const dogRef = useRef();
-  // Ajuste o caminho se necessário (ex: /dog.glb)
   const { scene } = useGLTF('/dog.glb');
 
   const clonedScene = useMemo(() => {
@@ -56,7 +54,6 @@ function ChromeDog({ modelPath, scale = 1 }) {
   );
 }
 
-// --- Elementos de Fundo ---
 const BackgroundElements = React.memo(() => {
   return (
     <group>
@@ -89,14 +86,12 @@ const BackgroundElements = React.memo(() => {
 });
 
 export default function LandingPage() {
-  const navigate = useNavigate(); // Hook de navegação
-  const [exiting, setExiting] = useState(false); // Estado da animação
+  const navigate = useNavigate();
+  const [exiting, setExiting] = useState(false);
 
   const handleExplore = () => {
-    // 1. Ativa o estado de saída (tela fica preta)
     setExiting(true);
 
-    // 2. Espera 1.5 segundos (tempo da animação) e navega
     setTimeout(() => {
       navigate('/home');
     }, 1000);
@@ -104,10 +99,6 @@ export default function LandingPage() {
 
   return (
     <div className="relative h-screen w-full bg-[#050505] overflow-hidden">
-      {/* --- OVERLAY DE TRANSIÇÃO (O EFEITO VISUAL) --- */}
-      {/* Se 'exiting' for true: opacity-100 (preto total), pointer-events-auto (bloqueia cliques).
-          Se 'exiting' for false: opacity-0 (invisível), pointer-events-none (deixa clicar no 3D).
-      */}
       <div
         className={`absolute inset-0 z-50 bg-black transition-opacity duration-[1000ms] ease-in-out
         ${exiting ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
@@ -143,7 +134,6 @@ export default function LandingPage() {
           />
           <Environment preset="warehouse" />
 
-          {/* IMPORTANTE: Garanta que o arquivo dog.glb está na pasta public */}
           <ChromeDog modelPath="/dog.glb" scale={0.03} />
 
           <BackgroundElements />
@@ -157,7 +147,6 @@ export default function LandingPage() {
         </Suspense>
       </Canvas>
 
-      {/* UI Overlay */}
       <div
         className={`absolute inset-0 pointer-events-none flex flex-col items-center justify-between p-12 z-10 transition-opacity duration-500 ${exiting ? 'opacity-0' : 'opacity-100'}`}
       >
@@ -175,7 +164,6 @@ export default function LandingPage() {
           </p>
         </div>
 
-        {/* BOTÃO COM AÇÃO */}
         <button
           onClick={handleExplore}
           className="pointer-events-auto border border-white/20 bg-white/5 backdrop-blur-sm text-white px-8 py-3 rounded-full hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 font-medium tracking-wide text-sm"
