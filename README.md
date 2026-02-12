@@ -57,6 +57,4 @@ Clone o projeto e siga os passos abaixo:
 
 ---
 
-## 🤝 Contato
-
 Desenvolvido por **Fábio Penna**.
