@@ -1,6 +1,6 @@
 # 🎥 MADEBYDOGZ | Audiovisual Portfolio
 
-[![Deploy on Vercel](https://img.shields.io/badge/Vercel-Live_Demo-black?style=for-the-badge&logo=vercel)](https://madebydogz-portfolio-demo-hasjjtwpe-fabio-pennas-projects.vercel.app/)
+[![Deploy on Vercel](https://img.shields.io/badge/Vercel-Live_Demo-black?style=for-the-badge&logo=vercel)](https://madebydogz-portfolio-demo.vercel.app/)
 
 > _"Underground Culture & Visuals"_
 
