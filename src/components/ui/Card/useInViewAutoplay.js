@@ -42,14 +42,17 @@ export function useInViewAutoplay(threshold = 1, delay = 800) {
 
     if (shouldPlay) {
       // Se o vídeo deve tocar, inicia um timer para começar a reprodução após o delay especificado;
-      timerRef.current = setTimeout(() => {
-        video.currentTime = 0;
-        const playPromise = video.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {});
-        }
-        setIsPlaying(true);
-      }, delay);
+      timerRef.current = setTimeout(
+        () => {
+          video.currentTime = 0;
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {});
+          }
+          setIsPlaying(true);
+        },
+        hasMouse ? 0 : delay,
+      ); // Em desktop, o vídeo deve tocar imediatamente ao hoverar, enquanto em mobile deve esperar o delay para evitar reproduções acidentais;
     } else {
       // Se o vídeo não deve tocar, limpa o timer (caso exista) e pausa o vídeo imediatamente;
       if (timerRef.current) {
