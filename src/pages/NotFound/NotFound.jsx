@@ -11,6 +11,7 @@ export default function NotFound() {
 
   return (
     <div className="relative min-h-screen bg-[#050505] text-white overflow-hidden flex flex-col items-center justify-center">
+      {/* Componentes para adicionar detalhes visuais à página de erro 404 */}
       <ErrorLog />
       <BackgroundGrid />
 

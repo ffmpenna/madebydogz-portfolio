@@ -23,13 +23,15 @@ export default function ArchiveHeader({
             MBD® <span className="text-neutral-600">ARCHIVE</span>
           </h1>
         </div>
-
+        {/* Ativamente o filtro de categorias. 
+        Passam todas categorias selecionáveis, a categoria selecionada e a função de atualização do filtro */}
         <FilterBar
           categories={categories}
           activeFilter={activeFilter}
           onFilterChange={onFilterChange}
         />
 
+        {/* Pequeno contador de clipes filtrados (ex: 08 de 12 clipes exibidos) */}
         <div className="hidden md:block text-xs font-mono text-neutral-600 text-right w-32">
           Files: {filteredCount.toString().padStart(2, '0')} /{' '}
           {totalCount.toString().padStart(2, '0')}

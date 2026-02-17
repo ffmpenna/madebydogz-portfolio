@@ -1,5 +1,5 @@
 import Card from './ui/Card';
-
+// Garantir a ordem e variedade de tamanhos dos cards na grid de destaque da homePage;
 const sizes = [
   'lg:col-span-8 lg:row-span-2',
   'lg:col-span-4',

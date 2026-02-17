@@ -10,9 +10,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="about" element={<About />} />
-        </Route>
         <Route index element={<LandingPage />} />
         <Route path="home" element={<Home />} />
         <Route path="/archive" element={<Archive />} />

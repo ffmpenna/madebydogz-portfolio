@@ -13,30 +13,36 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-x-hidden selection:bg-red-900 selection:text-white">
+      {/* Efeito para o fundo da página */}
       <BackgroundGrid />
       <div className="relative z-10">
+        {/* Header simples para a página principal. Tem apenas a função de voltar à landingPage */}
         <HomeHeader />
         <section className="min-h-[70vh] md:min-h-[80vh] flex flex-col justify-center px-4 md:px-20 relative py-15 md:py-20">
+          {/* Banner estético e chamativo para a página principal */}
           <HomeBanner />
         </section>
 
         <div className="py-4 md:py-0">
           <Marquee text="MADEBYDOGZ — VISUALS — EDITING — VFX " direction="left" />
         </div>
-
+        {/* Componente modular para criar sessões de conteúdo na página principal. 
+        Leva título, subtítulo, botão de navegação para uma página desejada (nesse caso a de clipes) e
+        o conteúdo da sessão por meio da "children" */}
         <HomeSection
           title="DROPS RECENTES"
           span="SELECTED_WORKS_VOL.1"
           buttonText="Ver Tudo"
           onButtonClick={() => navigate('/archive')}
         >
+          {/* Grid de projetos destacados */}
           <HighlightGrid items={projects} />
         </HomeSection>
 
         <div className="py-4 md:py-0">
           <Marquee text="MADEBYDOGZ — WORLDWIDE — UNDERGROUND — " direction="right" />
         </div>
-
+        {/* Footer contendo informções de contato e sugerindo parceria. */}
         <HomeFooter />
       </div>
     </div>

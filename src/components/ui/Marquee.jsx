@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 
+// Componente de Marquee para criar um efeito de texto rolando horizontalmente.
+
 const Marquee = ({ text, direction = 'left' }) => {
   return (
     <div className="relative flex overflow-hidden py-4 bg-white/5 border-y border-white/10 select-none">
