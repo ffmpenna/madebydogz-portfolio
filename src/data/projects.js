@@ -1,0 +1,68 @@
+export const categories = ['ALL', 'MUSIC VIDEO', 'VISUALIZER', 'VFX', 'COMMERCIAL'];
+
+export const projects = [
+  {
+    id: 1,
+    title: 'CLIP_01.MP4',
+    client: 'Cliente X',
+    type: 'MUSIC VIDEO',
+    thumbSrc: 'thumbnails/clip_01.webp',
+    videoSrc: 'videos/clip_01.mp4',
+  },
+  {
+    id: 2,
+    title: 'Vulto',
+    client: 'Teto',
+    type: 'VISUALIZER',
+    thumbSrc: 'thumbnails/clip_01.webp',
+    videoSrc: 'videos/clip_01.mp4',
+  },
+  {
+    id: 3,
+    title: 'Drill Season',
+    client: 'Major RD',
+    type: 'VFX',
+    thumbSrc: 'thumbnails/clip_01.webp',
+    videoSrc: 'videos/clip_01.mp4',
+  },
+  {
+    id: 4,
+    title: 'Chrome Hearts',
+    client: 'Matuê',
+    type: 'MUSIC VIDEO',
+    thumbSrc: 'thumbnails/clip_01.webp',
+    videoSrc: 'videos/clip_01.mp4',
+  },
+  {
+    id: 5,
+    title: 'Flow Espacial',
+    client: 'Teto & Matuê',
+    type: 'MUSIC VIDEO',
+    thumbSrc: 'thumbnails/clip_01.webp',
+    videoSrc: 'videos/clip_01.mp4',
+  },
+  {
+    id: 6,
+    title: 'Poesia 12',
+    client: 'Pineapple',
+    type: 'COMMERCIAL',
+    thumbSrc: 'thumbnails/clip_01.webp',
+    videoSrc: 'videos/clip_01.mp4',
+  },
+  {
+    id: 7,
+    title: 'Vampiro',
+    client: 'Matuê',
+    type: 'VFX BREAKDOWN',
+    thumbSrc: 'thumbnails/clip_01.webp',
+    videoSrc: 'videos/clip_01.mp4',
+  },
+  {
+    id: 8,
+    title: 'Kenny G',
+    client: 'Matuê',
+    type: 'MUSIC VIDEO',
+    thumbSrc: 'thumbnails/clip_01.webp',
+    videoSrc: 'videos/clip_01.mp4',
+  },
+];

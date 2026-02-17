@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import About from './pages/About';
-import LandingPage from './pages/LandingPage';
+import Layout from './components/layout/Layout';
+import Home from './pages/Home/Home';
+import About from './pages/About/About';
+import LandingPage from './pages/Landing/LandingPage';
+import NotFound from './pages/NotFound/NotFound';
+import Archive from './pages/Archive/Archive';
 
 function App() {
   return (
@@ -11,8 +13,10 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="about" element={<About />} />
         </Route>
-        <Route path="home" element={<Home />} />
         <Route index element={<LandingPage />} />
+        <Route path="home" element={<Home />} />
+        <Route path="/archive" element={<Archive />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
