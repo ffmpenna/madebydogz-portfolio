@@ -34,7 +34,7 @@ export default function Home() {
           title="DROPS RECENTES"
           span="SELECTED_WORKS_VOL.1"
           buttonText="Ver Tudo"
-          onButtonClick={() => navigate('/archive?view=MOTION')}
+          onButtonClick={() => navigate('/archive?view=VIDEOS')}
           bg={0}
         >
           {/* Grid de clipes destacados */}
@@ -45,7 +45,7 @@ export default function Home() {
           title="CLIQUES & CENAS"
           span="FASHION & BTS"
           buttonText="Ver Tudo"
-          onButtonClick={() => navigate('/archive?view=STILLS')}
+          onButtonClick={() => navigate('/archive?view=FOTOS')}
           bg={1}
         >
           {/* Grid de fotografias destacadas */}

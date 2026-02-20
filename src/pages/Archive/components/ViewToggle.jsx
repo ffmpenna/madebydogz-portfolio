@@ -4,7 +4,7 @@ export default function ViewToggle({ activeView, onViewChange }) {
   return (
     <div className="flex bg-white/5 border border-white/10 p-1 rounded-sm">
       {/* Alterna visualmente entre uma opção e outra além de enviar a informação de mudança para o componente pai */}
-      {['MOTION', 'STILLS'].map((view) => (
+      {['VIDEOS', 'FOTOS'].map((view) => (
         <button
           key={view}
           onClick={() => onViewChange(view)}

@@ -10,7 +10,7 @@ export default function Archive() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   // Lógica para ler e atualizar os parâmetros de URL
-  const viewMode = searchParams.get('view') || 'MOTION';
+  const viewMode = searchParams.get('view') || 'VIDEOS';
   const filter = searchParams.get('filter') || 'ALL';
 
   // Funções para atualizar os parâmetros de URL
@@ -31,7 +31,7 @@ export default function Archive() {
   };
 
   // Seleciona os dados com base no modo de visualização e aplica o filtro
-  const projectsData = viewMode === 'MOTION' ? projects.videos : projects.photos;
+  const projectsData = viewMode === 'VIDEOS' ? projects.videos : projects.photos;
 
   const filteredProjects = projectsData.filter((project) =>
     filter === 'ALL' ? true : project.type.includes(filter),
@@ -54,7 +54,7 @@ export default function Archive() {
 
       {/* Exibe os projetos filtrados */}
       <main className="mx-auto px-4 py-8">
-        {viewMode === 'MOTION' ? (
+        {viewMode === 'VIDEOS' ? (
           <ArchiveMotionGrid items={filteredProjects} />
         ) : (
           <ArchiveStillsGrid items={filteredProjects} />

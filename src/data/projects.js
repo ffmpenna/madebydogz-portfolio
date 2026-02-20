@@ -8,7 +8,7 @@ export const albums = [
     id: 'baile-do-bloc-dk47',
     client: 'DK47',
     title: 'BAILE DO BLOC',
-    type: 'STILLS',
+    type: 'FOTOS',
     date: 'NOV 2025',
     specs: 'SONY A7III / 35MM',
     heroImage:
