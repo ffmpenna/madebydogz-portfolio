@@ -3,7 +3,7 @@ import { useInViewAutoplay } from './useInViewAutoplay';
 import CardMedia from './CardMedia';
 import CardInfo from './CardInfo';
 
-export default function UrbanCard({
+export default function VideoCard({
   title,
   client,
   size,

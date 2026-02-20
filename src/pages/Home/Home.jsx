@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import Marquee from '../../components/ui/Marquee.jsx';
 import BackgroundGrid from '../../components/ui/BackgroundGrid.jsx';
-import HighlightGrid from '../../components/HighlightGrid.jsx';
+import ClipsHighlightGrid from '../../components/ClipsHighlightGrid.jsx';
+import PhotosHighlightGrid from '../../components/PhotosHighlightGrid.jsx';
 import { projects } from '../../data/projects.js';
 import HomeHeader from './components/HomeHeader.jsx';
 import HomeFooter from './components/HomeFooter.jsx';
@@ -33,10 +34,22 @@ export default function Home() {
           title="DROPS RECENTES"
           span="SELECTED_WORKS_VOL.1"
           buttonText="Ver Tudo"
-          onButtonClick={() => navigate('/archive')}
+          onButtonClick={() => navigate('/archive?view=MOTION')}
+          bg={0}
         >
-          {/* Grid de projetos destacados */}
-          <HighlightGrid items={projects} />
+          {/* Grid de clipes destacados */}
+          <ClipsHighlightGrid items={projects.videos} />
+        </HomeSection>
+
+        <HomeSection
+          title="CLIQUES & CENAS"
+          span="FASHION & BTS"
+          buttonText="Ver Tudo"
+          onButtonClick={() => navigate('/archive?view=STILLS')}
+          bg={1}
+        >
+          {/* Grid de fotografias destacadas */}
+          <PhotosHighlightGrid items={projects.photos} />
         </HomeSection>
 
         <div className="py-4 md:py-0">

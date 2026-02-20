@@ -3,10 +3,13 @@ export default function HomeSection({
   span,
   buttonText,
   onButtonClick,
+  bg,
   children,
 }) {
   return (
-    <section className="py-12 md:py-20 px-4 md:px-20 flex flex-col">
+    <section
+      className={`py-12 md:py-20 px-4 md:px-20 flex flex-col ${bg ? 'border-t border-white/10 bg-white/1' : ''}`}
+    >
       <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 md:mb-16 gap-4 md:gap-0">
         <h2 className="text-5xl sm:text-6xl md:text-8xl font-black text-transparent stroke-text opacity-60 leading-none">
           {title}

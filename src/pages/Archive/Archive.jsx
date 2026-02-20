@@ -1,17 +1,37 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import {
-  categories as categoriesData,
-  projects as projectsData,
-} from '../../data/projects';
-import ArchiveGrid from '../../components/ArchiveGrid';
+import { useSearchParams } from 'react-router-dom';
+import { categories as categoriesData, projects } from '../../data/projects';
 import NoiseOverlay from '../../components/ui/NoiseOverlay';
 import ArchiveHeader from './components/ArchiveHeader';
 import ArchiveFooter from './components/ArchiveFooter';
+import ArchiveStillsGrid from './components/ArchiveStillsGrid';
+import ArchiveMotionGrid from './components/ArchiveMotionGrid';
 
 export default function Archive() {
-  const navigate = useNavigate();
-  const [filter, setFilter] = useState('ALL');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Lógica para ler e atualizar os parâmetros de URL
+  const viewMode = searchParams.get('view') || 'MOTION';
+  const filter = searchParams.get('filter') || 'ALL';
+
+  // Funções para atualizar os parâmetros de URL
+  const handleSetViewMode = (newMode) => {
+    setSearchParams((prev) => {
+      prev.set('view', newMode);
+      prev.set('filter', 'ALL');
+      return prev;
+    });
+  };
+
+  // Ao mudar o filtro, resetamos para ALL se for o mesmo filtro ou atualizamos para o novo filtro
+  const handleSetFilter = (newFilter) => {
+    setSearchParams((prev) => {
+      prev.set('filter', newFilter);
+      return prev;
+    });
+  };
+
+  // Seleciona os dados com base no modo de visualização e aplica o filtro
+  const projectsData = viewMode === 'MOTION' ? projects.videos : projects.photos;
 
   const filteredProjects = projectsData.filter((project) =>
     filter === 'ALL' ? true : project.type.includes(filter),
@@ -20,27 +40,34 @@ export default function Archive() {
   return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-red-900 selection:text-white pb-20">
       <NoiseOverlay />
-      {/* Header da página de clipes. Possui um filtro por categorias (onFilterChange dispara a seleção de categoria); */}
+
+      {/* Header que controla todas as alterações de filtro */}
       <ArchiveHeader
-        onBack={() => navigate('/home')}
         categories={categoriesData}
         activeFilter={filter}
-        onFilterChange={setFilter}
+        viewMode={viewMode}
+        onFilterChange={handleSetFilter}
+        setViewMode={handleSetViewMode}
         totalCount={projectsData.length}
         filteredCount={filteredProjects.length}
       />
 
-      <main className="max-w-[1800px] mx-auto px-4 py-8">
-        {/* Um grid de clipes filtrados por categoria */}
-        <ArchiveGrid items={filteredProjects} />
-        {/* Caso não haja clipes filtrados, exibe uma mensagem de "sem dados" */}
+      {/* Exibe os projetos filtrados */}
+      <main className="mx-auto px-4 py-8">
+        {viewMode === 'MOTION' ? (
+          <ArchiveMotionGrid items={filteredProjects} />
+        ) : (
+          <ArchiveStillsGrid items={filteredProjects} />
+        )}
+
+        {/* Caso não tenha projetos passando no filtro exibe uma mensagem */}
         {filteredProjects.length === 0 && (
           <div className="py-20 text-center font-mono text-neutral-500">
             // NO_DATA_FOUND_IN_SECTOR
           </div>
         )}
       </main>
-      {/* Footer estético; */}
+
       <ArchiveFooter />
     </div>
   );
