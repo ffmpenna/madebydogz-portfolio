@@ -1,6 +1,6 @@
 export const categories = {
   videos: ['ALL', 'MUSIC VIDEO', 'VISUALIZER', 'VFX', 'COMMERCIAL'],
-  photos: ['ALL', 'EDITORIAL', 'ON-SET', 'BTS', 'COVER ART', 'FASHION', 'STREET'],
+  photos: ['ALL', 'SHOW', 'ON-SET', 'BTS', 'COVER ART', 'FASHION', 'STREET'],
 };
 
 export const albums = [
@@ -8,11 +8,11 @@ export const albums = [
     id: 'baile-do-bloc-dk47',
     client: 'DK47',
     title: 'BAILE DO BLOC',
-    type: 'FOTOS',
+    type: 'SHOW',
     date: 'NOV 2025',
     specs: 'SONY A7III / 35MM',
     heroImage:
-      'https://images.unsplash.com/photo-1508973379184-7517410fb0bc?q=80&w=800&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1581355931381-d1173e039b4a?q=80&w=2169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     credits: [
       { role: 'DIREÇÃO', name: 'NOME DO DIRETOR' },
       { role: 'FOTOGRAFIA', name: 'SEU NOME / MBD' },
@@ -21,7 +21,7 @@ export const albums = [
     gallery: [
       {
         id: 1,
-        src: 'https://images.unsplash.com/photo-1508973379184-7517410fb0bc?q=80&w=800&auto=format&fit=crop',
+        src: 'https://images.unsplash.com/photo-1561986518-72ab9202cb72?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       },
       {
         id: 2,
@@ -29,11 +29,11 @@ export const albums = [
       },
       {
         id: 3,
-        src: 'https://images.unsplash.com/photo-1508973379184-7517410fb0bc?q=80&w=800&auto=format&fit=crop',
+        src: 'https://images.unsplash.com/photo-1593958550648-99f5760799e0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       },
       {
         id: 4,
-        src: 'https://images.unsplash.com/photo-1508973379184-7517410fb0bc?q=80&w=800&auto=format&fit=crop',
+        src: 'https://images.unsplash.com/photo-1577648735394-9c41449a1f6f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       },
     ],
   },
@@ -110,39 +110,39 @@ export const projects = {
   photos: [
     {
       id: 1,
-      src: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1000&auto=format&fit=crop',
-      client: 'Streetwear FW26666',
-      type: 'FASHION',
+      src: 'https://images.unsplash.com/photo-1581355931381-d1173e039b4a?q=80&w=2169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      client: 'dk47',
+      type: 'SHOW',
       specs: 'ISO 400 // f/2.8',
       albumRefId: 'baile-do-bloc-dk47',
     },
     {
       id: 2,
-      src: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1000&auto=format&fit=crop',
-      client: 'Streetwear FW26',
-      type: 'FASHION',
+      src: 'https://images.unsplash.com/photo-1577648735394-9c41449a1f6f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      client: 'dk47',
+      type: 'SHOW',
       specs: 'ISO 400 // f/2.8',
       albumRefId: 'baile-do-bloc-dk47',
     },
     {
       id: 3,
-      src: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1000&auto=format&fit=crop',
-      client: 'Streetwear FW26',
-      type: 'FASHION',
+      src: 'https://images.unsplash.com/photo-1553970189-6b5d4ac3b97f?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      client: 'dk47',
+      type: 'SHOW',
       specs: 'ISO 400 // f/2.8',
       albumRefId: 'baile-do-bloc-dk47',
     },
     {
       id: 4,
-      src: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1000&auto=format&fit=crop',
-      client: 'Bastidores: Vulto',
-      type: 'ON-SET BTS',
+      src: 'https://images.unsplash.com/photo-1551853980-4747c0954c80?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      client: 'dk-47',
+      type: 'SHOW',
       specs: '35MM KODAK PORTRA',
       albumRefId: 'baile-do-bloc-dk47',
     },
     {
       id: 5,
-      src: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1000&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1600660792241-240f01455c6f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       client: 'Bastidores: Vulto',
       type: 'ON-SET BTS',
       specs: '35MM KODAK PORTRA',
@@ -150,7 +150,7 @@ export const projects = {
     },
     {
       id: 6,
-      src: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1000&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1654723011680-0e037c2a4f18?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       client: 'Bastidores: Vulto',
       type: 'ON-SET BTS',
       specs: '35MM KODAK PORTRA',
@@ -158,7 +158,7 @@ export const projects = {
     },
     {
       id: 7,
-      src: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1000&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1646900614911-378fd0c1d86d?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       client: 'Cover Art Focus',
       type: 'COVER ART',
       specs: 'DIGITAL MEDIUM FORMAT',
@@ -166,39 +166,31 @@ export const projects = {
     },
     {
       id: 8,
-      src: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1000&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1660486044177-45cd45bb5e99?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       client: 'Tour RJ',
-      type: 'STREET',
+      type: 'STREET FASHION',
       specs: 'ISO 1600 // GRAIN',
       albumRefId: 'baile-do-bloc-dk47',
     },
     {
       id: 9,
-      src: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1000&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1609579670156-c8f32c9523fa?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       client: 'Tour RJ',
-      type: 'STREET',
+      type: 'STREET FASHION',
       specs: 'ISO 1600 // GRAIN',
       albumRefId: 'baile-do-bloc-dk47',
     },
     {
       id: 10,
-      src: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1000&auto=format&fit=crop',
+      src: 'https://images.unsplash.com/photo-1674507888384-c53a93756d48?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       client: 'Tour RJ',
-      type: 'STREET',
-      specs: 'ISO 1600 // GRAIN',
-      albumRefId: 'baile-do-bloc-dk47',
-    },
-    {
-      id: 11,
-      src: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1000&auto=format&fit=crop',
-      client: 'Tour RJ',
-      type: 'EDITORIAL',
+      type: 'STREET FASHION',
       specs: 'ISO 1600 // GRAIN',
       albumRefId: 'baile-do-bloc-dk47',
     },
     {
       id: 12,
-      src: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?q=80&w=1000&auto=format&fit=crop',
+      src: 'https://plus.unsplash.com/premium_photo-1664868840007-c0644c70796b?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       client: 'Tour RJ',
       type: 'EDITORIAL',
       specs: 'ISO 1600 // GRAIN',
