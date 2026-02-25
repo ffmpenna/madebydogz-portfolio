@@ -12,7 +12,10 @@ export default function HomeHeader() {
         >
           BIBLIOTECA
         </button>
-        <button className="text-xs md:text-sm font-black uppercase hover:text-red-500 hover:underline underline-offset-4">
+        <button
+          onClick={() => navigate('/about')}
+          className="text-xs md:text-sm font-black uppercase hover:text-red-500 hover:underline underline-offset-4"
+        >
           SOBRE NÓS
         </button>
       </div>

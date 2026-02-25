@@ -6,7 +6,7 @@ export default function AlbumHero({ album }) {
       <img
         src={album.heroImage}
         alt={album.title}
-        className="w-full h-full object-cover scale-105 animate-[slowZoom_20s_ease-in-out_infinite_alternate]"
+        className="w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/40 to-transparent" />
 

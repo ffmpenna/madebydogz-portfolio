@@ -5,6 +5,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Archive from './pages/Archive/Archive';
 import ScrollToTop from './components/ScrollToTop';
 import Album from './pages/Album/Album';
+import About from './pages/About/About';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="home" element={<Home />} />
         <Route path="/archive" element={<Archive />} />
         <Route path="/album/:id" element={<Album />} />
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

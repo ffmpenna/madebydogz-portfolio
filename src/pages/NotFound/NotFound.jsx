@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import BackgroundGrid from '../../components/ui/BackgroundGrid';
 import ErrorLog from './components/ErrorLog';
 import SystemAlert from './components/SystemAlert';
-import ReturnButton from './components/ReturnButton';
 import SecurityFooter from './components/SecurityFooter';
+import FillingButton from '../../components/ui/FillingButton';
 
 export default function NotFound() {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ export default function NotFound() {
           polícia.
         </p>
 
-        <ReturnButton onClick={() => navigate('/')} />
+        <FillingButton onClick={() => navigate('/')} text="Voltar à base" />
       </div>
 
       <SecurityFooter />
