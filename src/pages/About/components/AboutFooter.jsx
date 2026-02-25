@@ -16,7 +16,7 @@ export default function AboutFooter() {
           rel="noopener noreferrer"
           className="cursor-pointer"
         >
-          <FillingButton text="Vamos trabalhar juntos?" />
+          <FillingButton text="Vamos trabalhar juntos" />
         </a>
       </div>
       <div className="w-full md:w-1/3 text-sm font-mono text-neutral-500 leading-relaxed z-10">
