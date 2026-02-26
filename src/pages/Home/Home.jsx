@@ -8,6 +8,9 @@ import HomeHeader from './components/HomeHeader.jsx';
 import HomeFooter from './components/HomeFooter.jsx';
 import HomeBanner from './components/HomeBanner.jsx';
 import HomeSection from './components/HomeSection.jsx';
+import { testConnection } from '../../services/api.js';
+
+testConnection();
 
 export default function Home() {
   const navigate = useNavigate();
