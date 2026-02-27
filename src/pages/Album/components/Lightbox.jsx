@@ -61,7 +61,7 @@ export default function Lightbox({ gallery, selectedIndex, setSelectedIndex }) {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
-        src={gallery[selectedIndex].src}
+        src={gallery[selectedIndex]}
         alt="Fullscreen view"
         className="max-w-full max-h-[90vh] object-contain px-12 select-none"
       />

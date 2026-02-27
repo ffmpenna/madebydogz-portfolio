@@ -1,7 +1,15 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-export default function StillCard({ src, client, type, specs, albumRefId, size }) {
+export default function StillCard({
+  heroImageUrl,
+  title,
+  client,
+  slug,
+  type,
+  specs,
+  size,
+}) {
   const navigate = useNavigate();
   return (
     <motion.div
@@ -11,11 +19,11 @@ export default function StillCard({ src, client, type, specs, albumRefId, size }
       exit={{ opacity: 0, scale: 0.95 }}
       whileHover={{ zIndex: 20 }}
       className={`relative group bg-black border border-white/5 cursor-crosshair overflow-hidden ${size}`}
-      onClick={() => navigate(`/album/${albumRefId}`)}
+      onClick={() => navigate(`/album/${slug}`)}
     >
       {/* Imagem (Mobile: Cor | Desktop: PB -> Cor) */}
       <img
-        src={src}
+        src={heroImageUrl}
         alt={client}
         className="
           w-full h-full object-cover 
@@ -41,8 +49,11 @@ export default function StillCard({ src, client, type, specs, albumRefId, size }
       {/* Identificação Inferior */}
       <div className="absolute bottom-4 left-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500 delay-75 md:translate-y-4 md:group-hover:translate-y-0">
         <h3 className="text-xl md:text-2xl font-black text-white uppercase leading-none tracking-tighter mix-blend-difference mb-1">
-          {client}
+          {title}
         </h3>
+        <h4 className="text-lg md:text-1xl font-black text-red-500/80 uppercase leading-none tracking-tighter mix-blend-difference mb-1">
+          {client}
+        </h4>
         <p className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest">
           // RAW_FILE
         </p>

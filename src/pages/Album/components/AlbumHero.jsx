@@ -4,7 +4,7 @@ export default function AlbumHero({ album }) {
   return (
     <header className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
       <img
-        src={album.heroImage}
+        src={album.heroImageUrl}
         alt={album.title}
         className="w-full h-full object-cover"
       />

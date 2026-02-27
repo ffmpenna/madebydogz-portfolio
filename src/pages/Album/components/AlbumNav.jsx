@@ -12,7 +12,7 @@ export default function AlbumNav({ albumId }) {
         <span className="group-hover:-translate-x-1 transition-transform">←</span> GO BACK
       </button>
       <div className="text-[10px] font-mono tracking-widest text-white/50">
-        // {albumId.padStart(3, '0')}
+        // {albumId}
       </div>
     </nav>
   );

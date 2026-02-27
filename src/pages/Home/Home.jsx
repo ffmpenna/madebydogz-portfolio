@@ -8,12 +8,28 @@ import HomeHeader from './components/HomeHeader.jsx';
 import HomeFooter from './components/HomeFooter.jsx';
 import HomeBanner from './components/HomeBanner.jsx';
 import HomeSection from './components/HomeSection.jsx';
-import { testConnection } from '../../services/api.js';
-
-testConnection();
+import { useEffect, useState } from 'react';
+import { fetchAlbumsForGrid } from '../../services/api.js';
+import SkeletonCard from '../../components/ui/SkeleteonCard.jsx';
 
 export default function Home() {
   const navigate = useNavigate();
+  const [apiAlbums, setApiAlbums] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadArchiveData = async () => {
+      setIsLoading(true);
+      // Puxa apenas as informações leves dos álbuns (sem a galeria)
+      const fetchedAlbums = await fetchAlbumsForGrid();
+      setApiAlbums(fetchedAlbums);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000); // Simula um delay para mostrar o skeleton
+    };
+
+    loadArchiveData();
+  }, []);
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-x-hidden selection:bg-red-900 selection:text-white">
@@ -52,7 +68,7 @@ export default function Home() {
           bg={1}
         >
           {/* Grid de fotografias destacadas */}
-          <PhotosHighlightGrid items={projects.photos} />
+          <PhotosHighlightGrid items={apiAlbums} isLoading={isLoading} />
         </HomeSection>
 
         <div className="py-4 md:py-0">
