@@ -9,7 +9,7 @@ export default function AlbumNav({ albumId }) {
         onClick={() => navigate(-1)}
         className="group flex items-center gap-2 text-xs font-mono text-white/70 hover:text-white transition-colors uppercase tracking-widest"
       >
-        <span className="group-hover:-translate-x-1 transition-transform">←</span> GO BACK
+        <span className="group-hover:-translate-x-1 transition-transform">←</span> BACK
       </button>
       <div className="text-[10px] font-mono tracking-widest text-white/50">
         // {albumId}

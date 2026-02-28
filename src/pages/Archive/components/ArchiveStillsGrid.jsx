@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import StillCard from '../../../components/ui/PhotoCard';
-import SkeletonCard from '../../../components/ui/SkeleteonCard';
+import { PhotoCard, SkeletonCard } from '../../../components/ui';
 
 export default function ArchiveStillsGrid({ items, isLoading }) {
   return (
@@ -13,7 +12,7 @@ export default function ArchiveStillsGrid({ items, isLoading }) {
       ) : (
         <AnimatePresence mode="popLayout">
           {items.map((props) => (
-            <StillCard key={props.id} {...props} />
+            <PhotoCard key={props.id} {...props} />
           ))}
         </AnimatePresence>
       )}

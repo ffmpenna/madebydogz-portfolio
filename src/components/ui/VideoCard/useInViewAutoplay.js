@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-export function useInViewAutoplay(threshold = 1, delay = 800) {
+export default function useInViewAutoplay(threshold = 1, delay = 800) {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
   const timerRef = useRef(null);

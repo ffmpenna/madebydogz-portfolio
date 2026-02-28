@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
-import AboutFooter from './components/AboutFooter';
-import AboutServices from './components/AboutServices';
-import AboutBanner from './components/AboutBanner';
-import AboutManifesto from './components/AboutManifesto';
-import AboutNav from './components/AboutNav';
+import {
+  AboutFooter,
+  AboutServices,
+  AboutBanner,
+  AboutManifesto,
+  AboutNav,
+} from './components';
 
 export default function About() {
   return (

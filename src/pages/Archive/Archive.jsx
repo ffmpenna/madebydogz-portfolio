@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchAlbumsForGrid, fetchCategories, fetchVideos } from '../../services/api';
-import NoiseOverlay from '../../components/ui/NoiseOverlay';
-import ArchiveHeader from './components/ArchiveHeader';
-import ArchiveFooter from './components/ArchiveFooter';
-import ArchiveStillsGrid from './components/ArchiveStillsGrid';
-import ArchiveMotionGrid from './components/ArchiveMotionGrid';
+import { NoiseOverlay } from '../../components/ui/';
+import {
+  ArchiveHeader,
+  ArchiveFooter,
+  ArchiveMotionGrid,
+  ArchiveStillsGrid,
+} from './components';
 
 export default function Archive() {
   const [searchParams, setSearchParams] = useSearchParams();

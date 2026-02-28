@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useInViewAutoplay } from './useInViewAutoplay';
+import useInViewAutoplay from './useInViewAutoplay';
 import CardMedia from './CardMedia';
 import CardInfo from './CardInfo';
 

@@ -1,11 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import LandingPage from './pages/Landing/LandingPage';
-import NotFound from './pages/NotFound/NotFound';
-import Archive from './pages/Archive/Archive';
-import ScrollToTop from './components/ScrollToTop';
-import Album from './pages/Album/Album';
-import About from './pages/About/About';
+import { Home, LandingPage, NotFound, Archive, Album, About } from './pages';
+import { ScrollToTop } from './components';
 
 function App() {
   return (

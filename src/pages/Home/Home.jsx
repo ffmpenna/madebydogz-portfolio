@@ -1,13 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import Marquee from '../../components/ui/Marquee.jsx';
-import BackgroundGrid from '../../components/ui/BackgroundGrid.jsx';
-import ClipsHighlightGrid from '../../components/ClipsHighlightGrid.jsx';
-import PhotosHighlightGrid from '../../components/PhotosHighlightGrid.jsx';
-import { projects } from '../../data/projects.js';
-import HomeHeader from './components/HomeHeader.jsx';
-import HomeFooter from './components/HomeFooter.jsx';
-import HomeBanner from './components/HomeBanner.jsx';
-import HomeSection from './components/HomeSection.jsx';
+import { BackgroundGrid, Marquee } from '../../components/ui';
+import { ClipsHighlightGrid, PhotosHighlightGrid } from '../../components';
+import { HomeBanner, HomeFooter, HomeHeader, HomeSection } from './components';
 import { useEffect, useState } from 'react';
 import { fetchAlbumsForGrid, fetchVideos } from '../../services/api.js';
 

@@ -3,10 +3,7 @@ import { motion } from 'framer-motion';
 // import { albums } from '../../data/projects';
 import NotFound from '../NotFound/NotFound';
 
-import AlbumNav from './components/AlbumNav';
-import AlbumHero from './components/AlbumHero';
-import AlbumCredits from './components/AlbumCredits';
-import AlbumGallery from './components/AlbumGallery';
+import { AlbumNav, AlbumHero, AlbumCredits, AlbumGallery } from './components';
 import { useEffect, useState } from 'react';
 import { fetchAlbumBySlug } from '../../services/api';
 

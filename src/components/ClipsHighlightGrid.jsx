@@ -1,5 +1,4 @@
-import SkeletonCard from './ui/SkeleteonCard';
-import Card from './ui/VideoCard';
+import { VideoCard, SkeletonCard } from './ui';
 // Garantir a ordem e variedade de tamanhos dos cards na grid de destaque da homePage;
 const sizes = [
   'lg:col-span-8 lg:row-span-2',
@@ -18,7 +17,9 @@ export default function ClipsHighlightGrid({ items, isLoading, slice = 5 }) {
           ))
         : items
             .slice(0, slice)
-            .map((props, index) => <Card {...props} key={index} size={sizes[index]} />)}
+            .map((props, index) => (
+              <VideoCard {...props} key={index} size={sizes[index]} />
+            ))}
     </div>
   );
 }

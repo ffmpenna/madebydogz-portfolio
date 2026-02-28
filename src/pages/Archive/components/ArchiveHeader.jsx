@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import FilterBar from './FilterBar';
-import ViewToggle from './ViewToggle';
+import { ViewToggle, FilterBar } from './';
 import { useNavigate } from 'react-router-dom';
 
 export default function ArchiveHeader({

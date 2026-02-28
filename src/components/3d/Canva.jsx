@@ -2,8 +2,7 @@ import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls } from '@react-three/drei';
 import { EffectComposer, Bloom, Noise, Vignette } from '@react-three/postprocessing';
-import ChromeDog from './ChromeDog';
-import BackgroundElements from './BackgroundElements';
+import { ChromeDog, BackgroundElements } from './';
 
 export default function Canva() {
   return (

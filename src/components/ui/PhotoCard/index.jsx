@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-export default function StillCard({
+export default function PhotoCard({
   heroImageUrl,
   title,
   client,

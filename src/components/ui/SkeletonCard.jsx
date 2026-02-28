@@ -1,7 +1,5 @@
 export default function SkeletonCard({ size }) {
   return (
-    // O aspect-[4/5] (ou o que você usar no seu card real) garante que a caixa vazia
-    // tenha a exata mesma proporção da foto que vai entrar ali.
     <div
       className={`bg-white/5 animate-pulse border border-white/5 relative overflow-hidden ${size}`}
     >

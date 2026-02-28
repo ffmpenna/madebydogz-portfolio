@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import VideoCard from '../../../components/ui/VideoCard';
-import SkeletonCard from '../../../components/ui/SkeleteonCard';
+import { VideoCard, SkeletonCard } from '../../../components/ui';
 
 export default function ArchiveMotionGrid({ items, isLoading }) {
   return (

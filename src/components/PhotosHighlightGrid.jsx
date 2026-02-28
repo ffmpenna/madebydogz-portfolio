@@ -1,5 +1,4 @@
-import StillCard from './ui/PhotoCard';
-import SkeletonCard from './ui/SkeleteonCard';
+import { PhotoCard, SkeletonCard } from './ui';
 
 // Garantir a ordem e variedade de tamanhos dos cards na grid de destaque da homePage;
 const sizes = [
@@ -19,7 +18,7 @@ export default function PhotosHighlightGrid({ items, isLoading, slice = 4 }) {
         : items
             .slice(0, slice)
             .map((props, index) => (
-              <StillCard key={props.id} {...props} size={sizes[index % sizes.length]} />
+              <PhotoCard key={props.id} {...props} size={sizes[index % sizes.length]} />
             ))}
     </div>
   );
