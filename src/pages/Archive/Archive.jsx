@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 // Importa a função da API que criamos
-import { fetchAlbumsForGrid } from '../../services/api';
+import { fetchAlbumsForGrid, fetchVideos } from '../../services/api';
 
 // Mantém os estáticos por enquanto para não quebrar a aba VIDEOS e as categorias
 import { categories as categoriesData, projects } from '../../data/projects';
@@ -16,23 +16,26 @@ import ArchiveMotionGrid from './components/ArchiveMotionGrid';
 export default function Archive() {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // 1. ESTADOS PARA O BACKEND
   const [apiAlbums, setApiAlbums] = useState([]);
+  const [apiVideos, setApiVideos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const viewMode = searchParams.get('view') || 'VIDEOS';
   const filter = searchParams.get('filter') || 'ALL';
 
-  // 2. FETCH DOS DADOS (Assim que a página carrega)
   useEffect(() => {
     const loadArchiveData = async () => {
       setIsLoading(true);
-      // Puxa apenas as informações leves dos álbuns (sem a galeria)
-      const fetchedAlbums = await fetchAlbumsForGrid();
+
+      const [fetchedAlbums, fetchedVideos] = await Promise.all([
+        fetchAlbumsForGrid(),
+        fetchVideos(),
+      ]);
+
       setApiAlbums(fetchedAlbums);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 3000); // Simula um delay para mostrar o skeleton
+      setApiVideos(fetchedVideos);
+
+      setIsLoading(false);
     };
 
     loadArchiveData();
@@ -53,10 +56,8 @@ export default function Archive() {
     });
   };
 
-  // 3. SELEÇÃO DE DADOS (Híbrida: Vídeos do código, Fotos da API)
-  const projectsData = viewMode === 'VIDEOS' ? projects.videos : apiAlbums;
+  const projectsData = viewMode === 'VIDEOS' ? apiVideos : apiAlbums;
 
-  // Filtra os projetos (usando '?.' para proteger caso algum álbum venha sem tipo)
   const filteredProjects = projectsData.filter((project) =>
     filter === 'ALL' ? true : project.type?.includes(filter),
   );
@@ -80,7 +81,7 @@ export default function Archive() {
 
         {/* RENDERIZAÇÃO DAS GRIDS */}
         {viewMode === 'VIDEOS' ? (
-          <ArchiveMotionGrid items={filteredProjects} />
+          <ArchiveMotionGrid items={filteredProjects} isLoading={isLoading} />
         ) : (
           <ArchiveStillsGrid items={filteredProjects} isLoading={isLoading} />
         )}

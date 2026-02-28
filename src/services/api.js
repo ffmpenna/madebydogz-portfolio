@@ -1,4 +1,3 @@
-// src/services/api.js
 import { createClient } from '@sanity/client';
 
 export const client = createClient({
@@ -30,8 +29,6 @@ export const fetchAlbumsForGrid = async () => {
   }
 };
 
-// src/services/api.js
-
 export const fetchAlbumBySlug = async (slug) => {
   try {
     const query = `
@@ -52,5 +49,28 @@ export const fetchAlbumBySlug = async (slug) => {
   } catch (error) {
     console.error(`Erro ao buscar o álbum ${slug}:`, error);
     return null;
+  }
+};
+
+export const fetchVideos = async () => {
+  try {
+    const query = `
+      *[_type == "video"] | order(_createdAt desc) {
+        _id,
+        title,
+        client,
+        type,
+        "slug": slug.current,
+        "thumbnailUrl": thumbnail.asset->url,
+        "previewUrl": previewVideo.asset->url,
+        videoUrl
+      }
+    `;
+
+    const data = await client.fetch(query);
+    return data;
+  } catch (error) {
+    console.error('Erro ao buscar os clipes no Sanity:', error);
+    return [];
   }
 };

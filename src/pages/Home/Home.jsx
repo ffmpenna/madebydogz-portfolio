@@ -9,23 +9,27 @@ import HomeFooter from './components/HomeFooter.jsx';
 import HomeBanner from './components/HomeBanner.jsx';
 import HomeSection from './components/HomeSection.jsx';
 import { useEffect, useState } from 'react';
-import { fetchAlbumsForGrid } from '../../services/api.js';
-import SkeletonCard from '../../components/ui/SkeleteonCard.jsx';
+import { fetchAlbumsForGrid, fetchVideos } from '../../services/api.js';
 
 export default function Home() {
   const navigate = useNavigate();
   const [apiAlbums, setApiAlbums] = useState([]);
+  const [apiVideos, setApiVideos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadArchiveData = async () => {
       setIsLoading(true);
-      // Puxa apenas as informações leves dos álbuns (sem a galeria)
-      const fetchedAlbums = await fetchAlbumsForGrid();
+
+      const [fetchedAlbums, fetchedVideos] = await Promise.all([
+        fetchAlbumsForGrid(),
+        fetchVideos(),
+      ]);
+
       setApiAlbums(fetchedAlbums);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 3000); // Simula um delay para mostrar o skeleton
+      setApiVideos(fetchedVideos);
+
+      setIsLoading(false);
     };
 
     loadArchiveData();
@@ -57,7 +61,7 @@ export default function Home() {
           bg={0}
         >
           {/* Grid de clipes destacados */}
-          <ClipsHighlightGrid items={projects.videos} />
+          <ClipsHighlightGrid items={apiVideos} isLoading={isLoading} />
         </HomeSection>
 
         <HomeSection
