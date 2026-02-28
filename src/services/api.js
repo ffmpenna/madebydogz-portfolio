@@ -14,7 +14,7 @@ export const fetchAlbumsForGrid = async () => {
         _id,
         title,
         client,
-        type,
+        "type": category->title,
         specs,
         "slug": slug.current,
         "heroImageUrl": heroImage.asset->url
@@ -36,7 +36,7 @@ export const fetchAlbumBySlug = async (slug) => {
         _id,
         title,
         client,
-        type,
+        "type": category->title,
         date,
         specs,
         "heroImageUrl": heroImage.asset->url,
@@ -59,7 +59,7 @@ export const fetchVideos = async () => {
         _id,
         title,
         client,
-        type,
+        "type": category->title,
         "slug": slug.current,
         "thumbnailUrl": thumbnail.asset->url,
         "previewUrl": previewVideo.asset->url,
@@ -71,6 +71,16 @@ export const fetchVideos = async () => {
     return data;
   } catch (error) {
     console.error('Erro ao buscar os clipes no Sanity:', error);
+    return [];
+  }
+};
+
+export const fetchCategories = async () => {
+  try {
+    const query = `*[_type == "category"] | order(title asc) { _id, title, mediaType }`;
+    return await client.fetch(query);
+  } catch (error) {
+    console.error('Erro ao buscar categorias:', error);
     return [];
   }
 };

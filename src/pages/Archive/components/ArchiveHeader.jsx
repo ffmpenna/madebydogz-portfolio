@@ -62,7 +62,7 @@ export default function ArchiveHeader({
         {/* Ativamente o filtro de categorias. 
         Passam todas categorias selecionáveis, a categoria selecionada e a função de atualização do filtro */}
         <FilterBar
-          categories={viewMode === 'VIDEOS' ? categories.videos : categories.photos}
+          categories={categories}
           activeFilter={activeFilter}
           onFilterChange={onFilterChange}
         />

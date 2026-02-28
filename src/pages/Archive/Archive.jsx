@@ -1,12 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-
-// Importa a função da API que criamos
-import { fetchAlbumsForGrid, fetchVideos } from '../../services/api';
-
-// Mantém os estáticos por enquanto para não quebrar a aba VIDEOS e as categorias
-import { categories as categoriesData, projects } from '../../data/projects';
-
+import { fetchAlbumsForGrid, fetchCategories, fetchVideos } from '../../services/api';
 import NoiseOverlay from '../../components/ui/NoiseOverlay';
 import ArchiveHeader from './components/ArchiveHeader';
 import ArchiveFooter from './components/ArchiveFooter';
@@ -16,6 +10,7 @@ import ArchiveMotionGrid from './components/ArchiveMotionGrid';
 export default function Archive() {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const [apiCategories, setApiCategories] = useState([]);
   const [apiAlbums, setApiAlbums] = useState([]);
   const [apiVideos, setApiVideos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -27,13 +22,15 @@ export default function Archive() {
     const loadArchiveData = async () => {
       setIsLoading(true);
 
-      const [fetchedAlbums, fetchedVideos] = await Promise.all([
+      const [fetchedAlbums, fetchedVideos, fetchedCategories] = await Promise.all([
         fetchAlbumsForGrid(),
         fetchVideos(),
+        fetchCategories(),
       ]);
 
       setApiAlbums(fetchedAlbums);
       setApiVideos(fetchedVideos);
+      setApiCategories(fetchedCategories);
 
       setIsLoading(false);
     };
@@ -56,6 +53,18 @@ export default function Archive() {
     });
   };
 
+  const currentCategories = apiCategories
+    .filter((cat) => {
+      if (viewMode === 'VIDEOS')
+        return cat.mediaType === 'video' || cat.mediaType === 'both';
+      if (viewMode === 'FOTOS')
+        return cat.mediaType === 'photo' || cat.mediaType === 'both';
+      return true;
+    })
+    .map((cat) => cat.title);
+
+  const filterButtons = ['ALL', ...currentCategories];
+
   const projectsData = viewMode === 'VIDEOS' ? apiVideos : apiAlbums;
 
   const filteredProjects = projectsData.filter((project) =>
@@ -67,7 +76,7 @@ export default function Archive() {
       <NoiseOverlay />
 
       <ArchiveHeader
-        categories={categoriesData}
+        categories={filterButtons}
         activeFilter={filter}
         viewMode={viewMode}
         onFilterChange={handleSetFilter}
@@ -77,8 +86,6 @@ export default function Archive() {
       />
 
       <main className="mx-auto px-4 py-8">
-        {/* ESTADO DE LOADING (Estética MBD) */}
-
         {/* RENDERIZAÇÃO DAS GRIDS */}
         {viewMode === 'VIDEOS' ? (
           <ArchiveMotionGrid items={filteredProjects} isLoading={isLoading} />
