@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ViewToggle, FilterBar } from './';
 import { useNavigate } from 'react-router-dom';
+import { useHideOnScroll } from '../../../hooks/useHideOnScroll';
 
 export default function ArchiveHeader({
   categories,
@@ -12,28 +13,7 @@ export default function ArchiveHeader({
   setViewMode,
 }) {
   const navigate = useNavigate();
-  // Lógica para esconder o header ao scrollar para baixo e mostrar ao scrollar para cima
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  // Adiciona um listener de scroll para detectar a direção do scroll e atualizar a visibilidade do header
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => window.removeEventListener('scroll', handleScroll); // Limpa o listener quando o componente é desmontado
-  }, [lastScrollY]);
+  const { isVisible } = useHideOnScroll(50);
 
   return (
     <header

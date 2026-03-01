@@ -1,35 +1,14 @@
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-// import { albums } from '../../data/projects';
-import NotFound from '../NotFound/NotFound';
-
+import { NotFound } from '../';
 import { AlbumNav, AlbumHero, AlbumCredits, AlbumGallery } from './components';
-import { useEffect, useState } from 'react';
-import { fetchAlbumBySlug } from '../../services/api';
+import { useAlbumData } from '../../hooks/useAlbumData';
 
 export default function Album() {
-  // Nota: o seu 'id' na URL agora na verdade é o 'slug' (ex: baile-do-bloc)
-  const { id } = useParams();
+  const { slug } = useParams();
 
-  // 1. Criamos os estados para guardar os dados e o aviso de carregamento
-  const [album, setAlbum] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const { album, isLoading } = useAlbumData(slug);
 
-  // 2. O useEffect dispara a busca na API assim que a página abre
-  useEffect(() => {
-    const getAlbumData = async () => {
-      setIsLoading(true); // Garante que a tela de loading apareça
-
-      const data = await fetchAlbumBySlug(id);
-
-      setAlbum(data);
-      setIsLoading(false); // Desliga o loading quando os dados chegam
-    };
-
-    getAlbumData();
-  }, [id]); // Se o ID da URL mudar, ele busca de novo
-
-  // 3. TELA DE LOADING (Estética MBD)
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#050505] flex items-center justify-center">
@@ -40,12 +19,10 @@ export default function Album() {
     );
   }
 
-  // 4. Tratamento de Erro (404)
   if (!album) {
     return <NotFound />;
   }
 
-  // Renderização da Página
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -53,7 +30,7 @@ export default function Album() {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-[#050505] text-white selection:bg-[#ce1e1e] selection:text-white pb-24"
     >
-      <AlbumNav albumId={id} />
+      <AlbumNav slug={slug} />
 
       <AlbumHero album={album} />
 

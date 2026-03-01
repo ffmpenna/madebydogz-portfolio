@@ -1,37 +1,14 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useLockBodyScroll } from '../../../hooks/useLockBodyScroll';
+import { useGalleryNavigation } from '../../../hooks/useGalleryNavigation';
 
 export default function Lightbox({ gallery, selectedIndex, setSelectedIndex }) {
-  // 1. Lógica de Travar o Scroll
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, []); // Só executa quando o Lightbox é montado na tela
+  useLockBodyScroll();
 
-  // 2. Lógica de Navegação
-  const showNext = () => {
-    setSelectedIndex((prev) => (prev === gallery.length - 1 ? 0 : prev + 1));
-  };
-
-  const showPrev = () => {
-    setSelectedIndex((prev) => (prev === 0 ? gallery.length - 1 : prev - 1));
-  };
-
-  const closeLightbox = () => setSelectedIndex(null);
-
-  // 3. Lógica do Teclado
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft') showPrev();
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [gallery.length]);
+  const { showNext, showPrev, closeLightbox } = useGalleryNavigation(
+    gallery.length,
+    setSelectedIndex,
+  );
 
   return (
     <motion.div

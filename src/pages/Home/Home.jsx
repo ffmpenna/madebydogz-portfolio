@@ -2,32 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import { BackgroundGrid, Marquee } from '../../components/ui';
 import { ClipsHighlightGrid, PhotosHighlightGrid } from '../../components';
 import { HomeBanner, HomeFooter, HomeHeader, HomeSection } from './components';
-import { useEffect, useState } from 'react';
-import { fetchAlbumsForGrid, fetchVideos } from '../../services/api.js';
+import { useHomeData } from '../../hooks/useHomeData';
 
 export default function Home() {
   const navigate = useNavigate();
-  const [apiAlbums, setApiAlbums] = useState([]);
-  const [apiVideos, setApiVideos] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const loadArchiveData = async () => {
-      setIsLoading(true);
-
-      const [fetchedAlbums, fetchedVideos] = await Promise.all([
-        fetchAlbumsForGrid(),
-        fetchVideos(),
-      ]);
-
-      setApiAlbums(fetchedAlbums);
-      setApiVideos(fetchedVideos);
-
-      setIsLoading(false);
-    };
-
-    loadArchiveData();
-  }, []);
+  const { recentAlbums, recentVideos, isLoading } = useHomeData();
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-x-hidden selection:bg-red-900 selection:text-white">
@@ -55,7 +34,7 @@ export default function Home() {
           bg={0}
         >
           {/* Grid de clipes destacados */}
-          <ClipsHighlightGrid items={apiVideos} isLoading={isLoading} />
+          <ClipsHighlightGrid items={recentVideos} isLoading={isLoading} />
         </HomeSection>
 
         <HomeSection
@@ -66,7 +45,7 @@ export default function Home() {
           bg={1}
         >
           {/* Grid de fotografias destacadas */}
-          <PhotosHighlightGrid items={apiAlbums} isLoading={isLoading} />
+          <PhotosHighlightGrid items={recentAlbums} isLoading={isLoading} />
         </HomeSection>
 
         <div className="py-4 md:py-0">

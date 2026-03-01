@@ -5,7 +5,7 @@ export default function ErrorLog() {
   // useEffect para simular um fluxo constante de erros de sistema;
   useEffect(() => {
     const interval = setInterval(() => {
-      const hex = Math.random().toString(16).substr(2, 8).toUpperCase();
+      const hex = Math.random().toString(16).substring(2, 8).toUpperCase();
       const err = `ERR_0x${hex} // DISK_CORRUPTED`;
       setCodes((prev) => [err, ...prev].slice(0, 15));
     }, 100);
