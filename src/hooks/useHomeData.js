@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchAlbumsForGrid, fetchVideos } from '../services/api';
+import { fetchAlbumsForGrid, fetchVideos } from '@/services/api';
 
 export function useHomeData() {
   const [recentAlbums, setRecentAlbums] = useState([]);

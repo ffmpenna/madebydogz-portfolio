@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
 import { ViewToggle, FilterBar } from './';
 import { useNavigate } from 'react-router-dom';
-import { useHideOnScroll } from '../../../hooks/useHideOnScroll';
+import { useHideOnScroll } from '@/hooks/useHideOnScroll';
 
 export default function ArchiveHeader({
   categories,

@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { NotFound } from '../';
 import { AlbumNav, AlbumHero, AlbumCredits, AlbumGallery } from './components';
-import { useAlbumData } from '../../hooks/useAlbumData';
+import { useAlbumData } from '@/hooks/useAlbumData';
 
 export default function Album() {
   const { slug } = useParams();

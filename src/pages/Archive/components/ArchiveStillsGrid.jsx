@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { PhotoCard, SkeletonCard } from '../../../components/ui';
+import { PhotoCard, SkeletonCard } from '@/components/ui';
 
 export default function ArchiveStillsGrid({ items, isLoading }) {
   return (

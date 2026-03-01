@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Canva } from '../../components/3d/';
+import { Canva } from '@/components/3d/';
 import { LandingHeader, LandingTitle } from './components';
 
 export default function LandingPage() {

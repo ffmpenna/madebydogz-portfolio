@@ -1,11 +1,11 @@
-import { useArchiveData } from '../../hooks/useArchiveData';
+import { useArchiveData } from '@/hooks/useArchiveData';
 import {
   ArchiveHeader,
   ArchiveFooter,
   ArchiveStillsGrid,
   ArchiveMotionGrid,
 } from './components';
-import { NoiseOverlay, SkeletonCard } from '../../components/ui';
+import { NoiseOverlay, SkeletonCard } from '@/components/ui';
 
 export default function Archive() {
   const {

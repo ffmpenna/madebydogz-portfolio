@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { fetchAlbumsForGrid, fetchVideos, fetchCategories } from '../services/api';
-import { getFilteredCategories, getFilteredProjects } from '../utils/archiveFilters';
+import { fetchAlbumsForGrid, fetchVideos, fetchCategories } from '@/services/api';
+import { getFilteredCategories, getFilteredProjects } from '@/utils/archiveFilters';
 
 export function useArchiveData() {
   const [searchParams, setSearchParams] = useSearchParams();

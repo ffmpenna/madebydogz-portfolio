@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { ErrorLog, SystemAlert, SecurityFooter } from './components';
-import { FillingButton, BackgroundGrid } from '../../components/ui';
+import { FillingButton, BackgroundGrid } from '@/components/ui';
 
 export default function NotFound() {
   const navigate = useNavigate();

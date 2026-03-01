@@ -1,4 +1,4 @@
-import { FillingButton } from '../../../components/ui';
+import { FillingButton } from '@/components/ui';
 
 export default function AboutFooter() {
   return (

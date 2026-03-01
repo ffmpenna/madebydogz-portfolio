@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { BackgroundGrid, Marquee } from '../../components/ui';
-import { ClipsHighlightGrid, PhotosHighlightGrid } from '../../components';
+import { BackgroundGrid, Marquee } from '@/components/ui';
+import { ClipsHighlightGrid, PhotosHighlightGrid } from '@/components';
 import { HomeBanner, HomeFooter, HomeHeader, HomeSection } from './components';
-import { useHomeData } from '../../hooks/useHomeData';
+import { useHomeData } from '@/hooks/useHomeData';
 
 export default function Home() {
   const navigate = useNavigate();
