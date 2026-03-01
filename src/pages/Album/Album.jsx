@@ -34,7 +34,7 @@ export default function Album() {
 
       <AlbumHero album={album} />
 
-      <AlbumCredits specs={album.specs} credits={[]} />
+      <AlbumCredits specs={album.specs} credits={album.credits} />
 
       <AlbumGallery gallery={album.galleryUrls} title={album.title} />
     </motion.div>

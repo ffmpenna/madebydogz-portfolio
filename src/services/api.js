@@ -16,6 +16,7 @@ export const fetchAlbumsForGrid = async () => {
         client,
         "type": category->title,
         specs,
+        credits,
         "slug": slug.current,
         "heroImageUrl": heroImage.asset->url
       }
@@ -39,12 +40,14 @@ export const fetchAlbumBySlug = async (slug) => {
         "type": category->title,
         date,
         specs,
+        credits,
         "heroImageUrl": heroImage.asset->url,
         "galleryUrls": gallery[].asset->url
       }
     `;
 
     const data = await client.fetch(query, { slug });
+    console.log(`Álbum encontrado para slug "${slug}":`, data);
     return data;
   } catch (error) {
     console.error(`Erro ao buscar o álbum ${slug}:`, error);
