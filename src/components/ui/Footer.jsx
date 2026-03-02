@@ -1,5 +1,6 @@
 import ContactModal from '@/components/ContactModal';
 import { AnimatePresence } from 'framer-motion';
+import { SquareArrowOutUpRight } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Footer() {
@@ -22,12 +23,25 @@ export default function Footer() {
               <p className="font-mono text-neutral-500 mb-6 uppercase text-xs md:text-sm tracking-widest flex items-center gap-3">
                 Tem um projeto?
               </p>
-              <button
-                onClick={() => setIsModalOpen(true)} // Abre o modal de contato ao clicar no botão
-                className="block text-left w-fit text-5xl sm:text-7xl md:text-[100px] font-black uppercase tracking-tighter leading-none text-transparent bg-clip-text bg-[linear-gradient(90deg,#B40001_50%,#ffffff_50%)] bg-[length:200%_100%] bg-[position:100%_0] hover:bg-[position:0_0] transition-[background-position] duration-500 ease-out cursor-pointer"
-              >
-                Vamos Conversar
-              </button>
+              <div className="relative group w-full md:w-fit mt-6 md:mt-0">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="w-full flex items-center justify-between gap-4 border border-white/20 bg-white/5 px-6 py-5 text-2xl sm:text-4xl font-black uppercase tracking-tighter text-white active:bg-[#B40001] active:border-[#B40001] underline transition-all duration-300
+                  md:block md:w-fit md:border-none md:bg-transparent md:p-0 
+                  md:text-[100px] md:leading-none md:text-transparent md:bg-clip-text 
+                  md:bg-[linear-gradient(90deg,#B40001_50%,#ffffff_50%)] 
+                  md:bg-[length:200%_100%] md:bg-[position:100%_0] 
+                  md:hover:bg-[position:0_0] md:transition-[background-position] 
+                  md:duration-500 md:ease-out cursor-pointer"
+                >
+                  <span>Vamos Conversar</span>
+
+                  {/* Ícone: Flex no mobile, Absoluto flutuando no desktop */}
+                  <span className="text-white/50 md:text-white/50 group-hover:text-[#B40001] transition-colors duration-500 md:absolute md:-top-4 md:-right-10 md:text-6xl">
+                    <SquareArrowOutUpRight />
+                  </span>
+                </button>
+              </div>
             </div>
 
             {/* Infos & Socials (Direita) */}

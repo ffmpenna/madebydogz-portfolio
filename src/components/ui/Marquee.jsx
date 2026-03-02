@@ -8,7 +8,7 @@ const Marquee = ({ text, direction = 'left' }) => {
       <motion.div
         className="flex whitespace-nowrap"
         animate={{ x: direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%'] }}
-        transition={{ repeat: Infinity, ease: 'linear', duration: 10 }}
+        transition={{ repeat: Infinity, ease: 'linear', duration: 100 }}
       >
         {[...Array(4)].map((_, i) => (
           <span

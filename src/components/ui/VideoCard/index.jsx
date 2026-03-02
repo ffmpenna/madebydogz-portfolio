@@ -26,7 +26,7 @@ export default function VideoCard({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={() => window.open(videoUrl || 'https://www.youtube.com', '_blank')}
-      className={`${size} relative bg-[#111] border border-[#222] hover:border[#CE1E1E]/50 transition-colors group overflow-hidden cursor-pointer`}
+      className={`${size} relative border border-[#222] hover:border[#CE1E1E]/50 transition-colors group overflow-hidden cursor-pointer`}
     >
       {/* Conteúdo do card de vídeo */}
       <CardMedia
