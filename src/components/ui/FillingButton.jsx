@@ -1,3 +1,4 @@
+// Botão de preenchimento com animação de preenchimento ao passar o mouse
 export default function FillingButton({ onClick, text, ...props }) {
   return (
     <button

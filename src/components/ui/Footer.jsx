@@ -23,7 +23,7 @@ export default function Footer() {
                 Tem um projeto?
               </p>
               <button
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => setIsModalOpen(true)} // Abre o modal de contato ao clicar no botão
                 className="block text-left w-fit text-5xl sm:text-7xl md:text-[100px] font-black uppercase tracking-tighter leading-none text-transparent bg-clip-text bg-[linear-gradient(90deg,#B40001_50%,#ffffff_50%)] bg-[length:200%_100%] bg-[position:100%_0] hover:bg-[position:0_0] transition-[background-position] duration-500 ease-out cursor-pointer"
               >
                 Vamos Conversar
@@ -87,7 +87,7 @@ export default function Footer() {
       </footer>
       <AnimatePresence>
         {isModalOpen && (
-          <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+          <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> // Renderiza o modal de contato quando isModalOpen é true, e passa a função onClose para fechar o modal
         )}
       </AnimatePresence>
     </>

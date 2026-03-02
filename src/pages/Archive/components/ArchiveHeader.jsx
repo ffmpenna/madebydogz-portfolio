@@ -2,6 +2,7 @@ import { ViewToggle, FilterBar } from './';
 import { useNavigate } from 'react-router-dom';
 import { useHideOnScroll } from '@/hooks/useHideOnScroll';
 
+// Componente de header para a página de Arquivo, contendo o título, navegação, filtros e toggle de visualização
 export default function ArchiveHeader({
   categories,
   activeFilter,
@@ -12,7 +13,7 @@ export default function ArchiveHeader({
   setViewMode,
 }) {
   const navigate = useNavigate();
-  const { isVisible } = useHideOnScroll(50);
+  const { isVisible } = useHideOnScroll(50); // Esconde o header após 50px de scroll para baixo, e mostra novamente ao subir.
 
   return (
     <header

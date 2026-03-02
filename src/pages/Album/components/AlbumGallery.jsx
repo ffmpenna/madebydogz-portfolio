@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Lightbox from './Lightbox';
 
 export default function AlbumGallery({ gallery, title }) {
-  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null); // Estado para controlar a imagem selecionada na lightbox.
 
   return (
     <>

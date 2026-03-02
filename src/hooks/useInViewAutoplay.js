@@ -69,6 +69,7 @@ export default function useInViewAutoplay(threshold = 1, delay = 800) {
     };
   }, [isHovered, isInView, delay]);
 
+  // Retorna as referências para o container e o vídeo, o estado de reprodução, e as funções para lidar com os eventos de mouse enter e leave, para que os componentes possam usá-los para controlar a reprodução do vídeo com base na visibilidade e interação do usuário.
   return {
     containerRef,
     videoRef,

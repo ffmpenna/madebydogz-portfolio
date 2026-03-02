@@ -60,7 +60,7 @@ export default function ContactModal({ isOpen, onClose }) {
         <p className="text-neutral-500 font-mono text-xs md:text-sm mb-8 uppercase tracking-widest">
           // Direto para nossa caixa de entrada
         </p>
-
+        {/* Mostra mensagem de sucesso após envio bem-sucedido */}
         {status === 'success' ? (
           <motion.div
             initial={{ opacity: 0 }}
@@ -115,7 +115,7 @@ export default function ContactModal({ isOpen, onClose }) {
               disabled={status === 'loading'}
               className="mt-8 bg-white text-black py-4 px-8 font-black uppercase tracking-widest text-sm hover:bg-[#ce1e1e] hover:text-white transition-colors disabled:opacity-50"
             />
-
+            {/* Exibe mensagem de erro se o envio falhar */}
             {status === 'error' && (
               <p className="text-[#ce1e1e] text-xs text-center mt-2">
                 Erro ao enviar. Tente novamente.

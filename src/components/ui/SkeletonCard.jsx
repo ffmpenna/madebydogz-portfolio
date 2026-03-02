@@ -1,3 +1,4 @@
+// Componente de cartão esqueleto para exibir durante o carregamento dos dados
 export default function SkeletonCard({ size }) {
   return (
     <div

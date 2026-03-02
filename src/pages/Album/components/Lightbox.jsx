@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useLockBodyScroll } from '../../../hooks/useLockBodyScroll';
 import { useGalleryNavigation } from '../../../hooks/useGalleryNavigation';
 
+// Esse componente é responsável por exibir a lightbox, que é uma visualização em tela cheia da imagem selecionada na galeria.
 export default function Lightbox({ gallery, selectedIndex, setSelectedIndex }) {
   useLockBodyScroll();
 

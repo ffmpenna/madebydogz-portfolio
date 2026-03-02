@@ -7,7 +7,7 @@ import { useAlbumData } from '@/hooks/useAlbumData';
 export default function Album() {
   const { slug } = useParams();
 
-  const { album, isLoading } = useAlbumData(slug);
+  const { album, isLoading } = useAlbumData(slug); // Usa o hook personalizado para buscar os dados do álbum com base no slug da URL.
 
   if (isLoading) {
     return (

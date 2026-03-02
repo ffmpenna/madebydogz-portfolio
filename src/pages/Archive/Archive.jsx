@@ -17,12 +17,13 @@ export default function Archive() {
     totalCount,
     handleSetViewMode,
     handleSetFilter,
-  } = useArchiveData();
+  } = useArchiveData(); // Hook customizado para gerenciar estado, lógica de filtragem e carregamento dos dados do arquivo
 
   return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-red-900 selection:text-white pb-20">
       <NoiseOverlay />
 
+      {/* Header com filtros, contagem de projetos e controle de modo de exibição */}
       <ArchiveHeader
         categories={filterButtons}
         activeFilter={filter}
@@ -42,12 +43,14 @@ export default function Archive() {
           </div>
         ) : (
           <>
+            {/* Exibe a grade de vídeos ou fotos com base no modo de exibição selecionado */}
             {viewMode === 'VIDEOS' ? (
               <ArchiveMotionGrid items={filteredProjects} />
             ) : (
               <ArchiveStillsGrid items={filteredProjects} />
             )}
 
+            {/* Mensagem de "Nenhum dado encontrado" quando não houver projetos filtrados */}
             {filteredProjects.length === 0 && (
               <div className="py-20 text-center font-mono text-neutral-500">
                 // NO_DATA_FOUND_IN_SECTOR

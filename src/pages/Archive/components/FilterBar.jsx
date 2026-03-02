@@ -1,3 +1,4 @@
+// Component para a barra de filtros na página de Arquivo
 export default function FilterBar({ categories, activeFilter, onFilterChange }) {
   return (
     <nav className="flex flex-wrap justify-center gap-2">

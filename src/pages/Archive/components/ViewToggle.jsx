@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 
+// Componente para alternar entre as visualizações de vídeos e fotos na página de Arquivo
 export default function ViewToggle({ activeView, onViewChange }) {
   return (
     <div className="flex bg-white/5 border border-white/10 p-1 rounded-sm">
