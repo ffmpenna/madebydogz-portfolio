@@ -1,11 +1,6 @@
 import { motion } from 'framer-motion';
-import {
-  AboutFooter,
-  AboutServices,
-  AboutBanner,
-  AboutManifesto,
-  AboutNav,
-} from './components';
+import { AboutServices, AboutBanner, AboutManifesto, AboutNav } from './components';
+import { Footer } from '@/components/ui';
 
 export default function About() {
   return (
@@ -31,10 +26,8 @@ export default function About() {
         {/* lista com as áreas de atuação da MBD*/}
         <AboutServices />
       </section>
-      <footer className="relative px-4 md:px-12 max-w-[1800px] mx-auto py-24 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-12 overflow-hidden">
-        {/* footer com sugestão de parceria */}
-        <AboutFooter />
-      </footer>
+      {/* footer com informações de contato e sugestão de parceria */}
+      <Footer />
     </motion.div>
   );
 }

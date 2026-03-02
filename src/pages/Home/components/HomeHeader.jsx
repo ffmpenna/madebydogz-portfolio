@@ -8,20 +8,20 @@ export default function HomeHeader() {
         <span className="font-black tracking-tighter text-lg md:text-xl">MBD®</span>
         <button
           onClick={() => navigate('/archive')}
-          className="text-xs md:text-sm font-black uppercase hover:text-red-500 hover:underline underline-offset-4"
+          className="text-xs md:text-sm font-black uppercase hover:text[#CE1E1E] hover:underline underline-offset-4"
         >
           BIBLIOTECA
         </button>
         <button
           onClick={() => navigate('/about')}
-          className="text-xs md:text-sm font-black uppercase hover:text-red-500 hover:underline underline-offset-4"
+          className="text-xs md:text-sm font-black uppercase hover:text[#CE1E1E] hover:underline underline-offset-4"
         >
           SOBRE NÓS
         </button>
       </div>
       <button
         onClick={() => navigate('/')}
-        className="text-[10px] md:text-xs font-mono uppercase hover:text-red-500 hover:underline underline-offset-4"
+        className="text-[10px] md:text-xs font-mono uppercase hover:text[#CE1E1E] hover:underline underline-offset-4"
       >
         [ Return to 3D ]
       </button>

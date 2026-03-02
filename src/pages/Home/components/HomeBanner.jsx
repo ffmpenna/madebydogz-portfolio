@@ -23,7 +23,7 @@ export default function HomeBanner() {
         <p className="font-mono text-[10px] md:text-xs text-neutral-400 mb-2">
           EST. 2024 // RIO DE JANEIRO
         </p>
-        <p className="text-xs md:text-sm font-bold uppercase leading-tight text-white border-l-2 border-red-600 pl-4">
+        <p className="text-xs md:text-sm font-bold uppercase leading-tight text-white border-l-2 border[#CE1E1E] pl-4">
           Cultura Underground. Trap, Rap & Estética Urbana.
         </p>
       </motion.div>

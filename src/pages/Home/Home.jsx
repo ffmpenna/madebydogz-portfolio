@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { BackgroundGrid, Marquee } from '@/components/ui';
 import { ClipsHighlightGrid, PhotosHighlightGrid } from '@/components';
-import { HomeBanner, HomeFooter, HomeHeader, HomeSection } from './components';
+import { HomeBanner, HomeHeader, HomeSection } from './components';
 import { useHomeData } from '@/hooks/useHomeData';
+import { Footer } from '@/components/ui';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ export default function Home() {
           <Marquee text="MADEBYDOGZ — WORLDWIDE — UNDERGROUND — " direction="right" />
         </div>
         {/* Footer contendo informções de contato e sugerindo parceria. */}
-        <HomeFooter />
+        <Footer />
       </div>
     </div>
   );

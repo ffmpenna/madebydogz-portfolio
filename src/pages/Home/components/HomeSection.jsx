@@ -25,7 +25,7 @@ export default function HomeSection({
 
       <button
         onClick={onButtonClick}
-        className="text-[15px] md:w-fit md:self-end md:border-none border p-2 my-5 md:text-lg font-mono uppercase hover:text-red-500 hover:underline underline-offset-4"
+        className="text-[15px] md:w-fit md:self-end md:border-none border p-2 my-5 md:text-lg font-mono uppercase hover:text[#CE1E1E] hover:underline underline-offset-4"
       >
         [ {buttonText} ]
       </button>

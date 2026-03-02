@@ -51,7 +51,7 @@ export default function PhotoCard({
         <h3 className="text-xl md:text-2xl font-black text-white uppercase leading-none tracking-tighter mix-blend-difference mb-1">
           {title}
         </h3>
-        <h4 className="text-lg md:text-1xl font-black text-red-500/80 uppercase leading-none tracking-tighter mix-blend-difference mb-1">
+        <h4 className="text-lg md:text-1xl font-black text[#CE1E1E]/80 uppercase leading-none tracking-tighter mix-blend-difference mb-1">
           {client}
         </h4>
         <p className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest">

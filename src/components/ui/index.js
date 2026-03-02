@@ -1,4 +1,5 @@
 export { default as NoiseOverlay } from './NoiseOverlay';
+export { default as Footer } from './Footer';
 export { default as FillingButton } from './FillingButton';
 export { default as BackgroundGrid } from './BackgroundGrid';
 export { default as Marquee } from './Marquee';

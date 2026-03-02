@@ -47,7 +47,6 @@ export const fetchAlbumBySlug = async (slug) => {
     `;
 
     const data = await client.fetch(query, { slug });
-    console.log(`Álbum encontrado para slug "${slug}":`, data);
     return data;
   } catch (error) {
     console.error(`Erro ao buscar o álbum ${slug}:`, error);
