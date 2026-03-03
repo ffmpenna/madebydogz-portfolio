@@ -4,8 +4,9 @@ import { PhotoCard, SkeletonCard } from './ui';
 const sizes = [
   'md:col-span-5 md:row-span-2',
   'md:col-span-7 md:row-span-2',
-  'md:col-span-4 md:row-span-1',
-  'md:col-span-3 md:row-span-1',
+  'md:col-span-4 md:row-span-2',
+  'md:col-span-4 md:row-span-2',
+  'md:col-span-4 md:row-span-2',
 ];
 
 export default function PhotosHighlightGrid({ items, isLoading, slice = 4 }) {
@@ -15,11 +16,9 @@ export default function PhotosHighlightGrid({ items, isLoading, slice = 4 }) {
         ? [...Array(slice)].map((_, index) => (
             <SkeletonCard key={index} size={sizes[index % sizes.length]} />
           ))
-        : items
-            .slice(0, slice)
-            .map((props, index) => (
-              <PhotoCard key={props.id} {...props} size={sizes[index % sizes.length]} />
-            ))}
+        : items.map((props, index) => (
+            <PhotoCard key={props.id} {...props} size={sizes[index % sizes.length]} />
+          ))}
     </div>
   );
 }
