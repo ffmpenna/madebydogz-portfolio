@@ -7,7 +7,7 @@ export default function CardInfo({ type, title, client, index }) {
         </span>
         <div className="absolute bottom-0 z-10 p-6 mt-auto w-full bg-gradient-to-t from-black/90 to-transparent pt-12">
           <h3
-            className={`${index === 0 ? 'text-7xl' : 'text-3xl'} font-black text-white uppercase leading-none mb-1 group-hover:text[#CE1E1E] transition-colors mix-blend-difference`}
+            className={`${index === 0 ? 'md:text-7xl' : 'text-3xl'} font-black text-white uppercase leading-none mb-1 group-hover:text[#CE1E1E] transition-colors mix-blend-difference`}
           >
             {title}
           </h3>
