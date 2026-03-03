@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Marquee = ({ text, direction = 'left' }) => {
   return (
-    <div className="relative flex overflow-hidden py-4 bg-white/5 border-y border-white/10 select-none">
+    <div className="relative flex overflow-hidden pb-2 pt-5 bg-white/5 border-y border-white/10 select-none">
       <motion.div
         className="flex whitespace-nowrap"
         animate={{ x: direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%'] }}
@@ -13,7 +13,7 @@ const Marquee = ({ text, direction = 'left' }) => {
         {[...Array(4)].map((_, i) => (
           <span
             key={i}
-            className="text-4xl md:text-6xl font-black uppercase text-transparent stroke-text px-3 tracking-tighter opacity-50"
+            className="text-4xl md:text-6xl font-made uppercase px-3 tracking-tighter opacity-80"
           >
             {text}
           </span>

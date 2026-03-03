@@ -8,10 +8,10 @@ export default function HomeSection({
 }) {
   return (
     <section
-      className={`py-12 md:py-20 px-4 md:px-20 flex flex-col ${bg ? ' bg-white/5' : 'bg-[#050505]'}`}
+      className={`py-12 md:py-12 px-4 md:px-35 flex flex-col ${bg ? ' bg-white/5' : 'bg-[#050505]'}`}
     >
       {/* Cabeçalho Original Restaurado */}
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 md:mb-16 gap-4 md:gap-0">
+      <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 md:mb-5 gap-4 md:gap-0">
         <h2 className="text-5xl sm:text-6xl md:text-[74px] font-black text-transparent stroke-text opacity-60 leading-none">
           {title}
         </h2>

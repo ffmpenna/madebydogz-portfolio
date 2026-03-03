@@ -1,5 +1,17 @@
 @import 'tailwindcss';
 
+/* 1. Importa o arquivo */
+@font-face {
+  font-family: 'made';
+  src: url('/fonts/old_englished_boots.ttf') format('truetype');
+  font-display: swap; /* Ajuda a carregar mais rápido */
+}
+
+/* 2. Cria a classe pro Tailwind v4 usar */
+@theme {
+  --font-made: 'made', serif;
+}
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

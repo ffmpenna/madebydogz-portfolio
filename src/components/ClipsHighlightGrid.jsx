@@ -18,7 +18,7 @@ export default function ClipsHighlightGrid({ items, isLoading, slice = 5 }) {
             <SkeletonCard key={index} size={sizes[index]} />
           ))
         : items.map((props, index) => (
-            <VideoCard {...props} key={index} size={sizes[index]} />
+            <VideoCard {...props} index={index} key={index} size={sizes[index]} />
           ))}
     </div>
   );

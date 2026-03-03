@@ -22,7 +22,7 @@ export default function Home() {
         </section>
 
         <div className="py-4 md:py-0">
-          <Marquee text="MADEBYDOGZ — VISUALS — EDITING — VFX " direction="left" />
+          <Marquee text="MADEBYDOGZ - VISUALS - EDITING - VFX - " direction="left" />
         </div>
         {/* Componente modular para criar sessões de conteúdo na página principal. 
         Leva título, subtítulo, botão de navegação para uma página desejada (nesse caso a de clipes) e

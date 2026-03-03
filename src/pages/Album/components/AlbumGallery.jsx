@@ -23,7 +23,7 @@ export default function AlbumGallery({ gallery, title }) {
                 src={`${image}?w=800&q=80&auto=format`}
                 alt={`${title} - ${image.id}`}
                 loading="lazy"
-                className="w-full h-full object-cover md:grayscale md:group-hover:grayscale-0 transition-all duration-700 md:group-hover:scale-105"
+                className="w-full h-full object-cover transition-all duration-700 md:group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                 <span className="text-white font-mono text-xs tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">

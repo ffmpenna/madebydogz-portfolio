@@ -11,6 +11,7 @@ export default function VideoCard({
   previewUrl,
   thumbnailUrl,
   videoUrl,
+  index,
 }) {
   // Usa o hook personalizado para controlar a reprodução automática do vídeo com base na visibilidade e interação do usuário;
   const { containerRef, videoRef, isPlaying, handleMouseEnter, handleMouseLeave } =
@@ -37,7 +38,13 @@ export default function VideoCard({
       />
 
       {/* Rodapé do card de vídeo com as informações do clipe */}
-      <CardInfo type={type} title={title} client={client} isPlaying={isPlaying} />
+      <CardInfo
+        type={type}
+        index={index}
+        title={title}
+        client={client}
+        isPlaying={isPlaying}
+      />
     </motion.div>
   );
 }

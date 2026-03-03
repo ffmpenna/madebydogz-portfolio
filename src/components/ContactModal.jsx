@@ -113,7 +113,6 @@ export default function ContactModal({ isOpen, onClose }) {
               text={status === 'loading' ? 'ENVIANDO...' : 'ENVIAR MENSAGEM'}
               type="submit"
               disabled={status === 'loading'}
-              className="mt-8 bg-white text-black py-4 px-8 font-black uppercase tracking-widest text-sm hover:bg-[#ce1e1e] hover:text-white transition-colors disabled:opacity-50"
             />
             {/* Exibe mensagem de erro se o envio falhar */}
             {status === 'error' && (
