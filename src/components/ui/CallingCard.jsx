@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { LogoMade } from './';
 import { AnimatePresence, motion } from 'framer-motion';
+import ContactModal from '../ContactModal';
 
 export default function CallingCard() {
-  const { isModalOpen, setIsModalOpen } = useState(false); // Estado para controlar a abertura do modal de contato
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar a abertura do modal de contato
   return (
     <>
       <motion.div

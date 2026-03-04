@@ -1,7 +1,5 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { BackgroundGrid, LogoMade } from '@/components/ui';
-import ContactModal from '@/components/ContactModal';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { BackgroundGrid } from '@/components/ui';
 import CallingCard from '@/components/ui/CallingCard';
 
 export default function HomeBanner() {
