@@ -5,8 +5,6 @@ import CallingCard from '@/components/ui/CallingCard';
 export default function HomeBanner() {
   return (
     <div className="relative w-full flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24">
-      <BackgroundGrid />
-
       {/* Título Principal */}
       <motion.h1
         initial={{ y: 50, opacity: 0 }}
