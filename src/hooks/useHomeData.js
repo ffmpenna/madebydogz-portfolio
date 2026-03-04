@@ -14,8 +14,8 @@ export function useHomeData() {
 
       const [albums, videos] = await Promise.all([fetchAlbumsForGrid(), fetchVideos()]);
 
-      setRecentAlbums(albums.slice(0, 6));
-      setRecentVideos(videos.slice(0, 5));
+      setRecentAlbums(albums.slice(0, 5));
+      setRecentVideos(videos.slice(0, 6));
 
       setIsLoading(false);
     };
