@@ -10,7 +10,6 @@ const sizes = [
 ];
 
 export default function ClipsHighlightGrid({ items, isLoading, slice = 5 }) {
-  console.log({ items });
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-[300px]">
       {isLoading

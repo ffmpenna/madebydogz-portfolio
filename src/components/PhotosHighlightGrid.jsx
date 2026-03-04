@@ -17,7 +17,7 @@ export default function PhotosHighlightGrid({ items, isLoading, slice = 4 }) {
             <SkeletonCard key={index} size={sizes[index % sizes.length]} />
           ))
         : items.map((props, index) => (
-            <PhotoCard key={props.id} {...props} size={sizes[index % sizes.length]} />
+            <PhotoCard key={props._id} {...props} size={sizes[index % sizes.length]} />
           ))}
     </div>
   );
