@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Environment, OrbitControls } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import { EffectComposer, Bloom, Noise, Vignette } from '@react-three/postprocessing';
 import { ChromeDog, BackgroundElements } from './';
 
@@ -17,35 +17,47 @@ export default function Canva() {
         <color attach="background" args={['#050505']} />
         <fog attach="fog" args={['#050505', 5, 20]} />
 
-        <ambientLight intensity={0.2} />
+        {/* 1. LUZ AMBIENTE (Preenche as sombras para não ficarem 100% pretas) */}
+        <ambientLight intensity={0.6} />
 
+        {/* 2. LUZ PRINCIPAL BRANCA (Vem de frente/cima para dar volume e mostrar que é 3D) */}
+        <directionalLight
+          position={[0, 5, 5]}
+          intensity={2.5}
+          color="#ffffff"
+          castShadow
+          shadow-mapSize={[512, 512]}
+        />
+
+        {/* 3. HOLOFOTE ROXO (Recorte na lateral direita/trás) */}
         <spotLight
-          position={[5, 5, 5]}
-          angle={0.3}
-          penumbra={1}
-          intensity={3}
+          position={[5, 3, 2]} // Movido mais pra baixo e pra lateral
+          angle={0.6} // Ângulo mais aberto para cobrir mais o corpo
+          penumbra={0.5} // Borda da luz mais suave
+          intensity={5} // Intensidade maior porque luzes coloridas perdem força em objetos cinzas
           color="#a855f7"
           castShadow
           shadow-mapSize={[512, 512]}
         />
+
+        {/* 4. HOLOFOTE AZUL (Recorte na lateral esquerda/trás) */}
         <spotLight
-          position={[-5, 5, 5]}
-          angle={0.3}
-          penumbra={1}
-          intensity={3}
+          position={[-5, 3, 2]}
+          angle={0.6}
+          penumbra={0.5}
+          intensity={5}
           color="#06b6d4"
           castShadow
           shadow-mapSize={[512, 512]}
         />
-
-        <Environment files="/enviroment.jpg" resolution={256} />
 
         <ChromeDog modelPath="/dog.glb" scale={0.03} />
 
         <BackgroundElements />
 
         <EffectComposer disableNormalPass multisampling={0}>
-          <Bloom luminanceThreshold={0.8} luminanceSmoothing={0.025} intensity={1.5} />
+          {/* Ajustei o Bloom para pegar os brilhos do Neon batendo na pedra */}
+          <Bloom luminanceThreshold={0.5} luminanceSmoothing={0.4} intensity={1.2} />
           <Noise opacity={0.05} />
           <Vignette eskil={false} offset={0.1} darkness={1.1} />
         </EffectComposer>
