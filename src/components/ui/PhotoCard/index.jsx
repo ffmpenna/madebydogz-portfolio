@@ -45,9 +45,11 @@ export default function PhotoCard({
         >
           {type}
         </span>
-        <span className="text-[9px] font-mono text-white/70 uppercase tracking-widest border border-white/20 px-1 backdrop-blur-sm bg-black/30">
-          {specs}
-        </span>
+        {specs && (
+          <span className="text-[9px] font-mono text-white/70 uppercase tracking-widest border border-white/20 px-1 backdrop-blur-sm bg-black/30">
+            {specs}
+          </span>
+        )}
       </div>
 
       {/* Identificação Inferior */}
