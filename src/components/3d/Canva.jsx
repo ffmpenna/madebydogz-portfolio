@@ -11,11 +11,14 @@ export default function Canva() {
       gl={{ powerPreference: 'high-performance', antialias: false }}
       camera={{ position: [0, 1, 6], fov: 45 }}
       shadows
+      className="touch-none"
     >
-      <Suspense fallback={null}>
+      <Suspense>
         <color attach="background" args={['#050505']} />
         <fog attach="fog" args={['#050505', 5, 20]} />
+
         <ambientLight intensity={0.2} />
+
         <spotLight
           position={[5, 5, 5]}
           angle={0.3}
@@ -23,7 +26,7 @@ export default function Canva() {
           intensity={3}
           color="#a855f7"
           castShadow
-          shadow-mapSize={[1024, 1024]}
+          shadow-mapSize={[512, 512]}
         />
         <spotLight
           position={[-5, 5, 5]}
@@ -32,9 +35,10 @@ export default function Canva() {
           intensity={3}
           color="#06b6d4"
           castShadow
-          shadow-mapSize={[1024, 1024]}
+          shadow-mapSize={[512, 512]}
         />
-        <Environment preset="warehouse" />
+
+        <Environment files="/enviroment.jpg" resolution={256} />
 
         <ChromeDog modelPath="/dog.glb" scale={0.03} />
 
@@ -45,7 +49,13 @@ export default function Canva() {
           <Noise opacity={0.05} />
           <Vignette eskil={false} offset={0.1} darkness={1.1} />
         </EffectComposer>
-        <OrbitControls enableZoom={true} />
+
+        <OrbitControls
+          enableZoom={true}
+          enablePan={false}
+          autoRotate={true}
+          autoRotateSpeed={0.5}
+        />
       </Suspense>
     </Canvas>
   );
