@@ -27,6 +27,7 @@ export default function PhotoCard({
       <img
         src={`${heroImageUrl}?w=1000&q=80&auto=format`}
         alt={client}
+        loading="lazy"
         className="
           w-full h-full object-cover 
           grayscale-0 opacity-100
