@@ -10,21 +10,21 @@ export const client = createClient({
 export const fetchAlbumsForGrid = async () => {
   try {
     const query = `
-      *[_type == "album"] | order(_createdAt desc) {
-        _id,
-        title,
-        client,
-        "type": category->title,
-        "color": category->colorTheme.hex,
-        specs,
-        credits,
-        "slug": slug.current,
-        "heroImageUrl": heroImage.asset->url
+      {
+        "featured": *[_type == "siteSettings"][0].featuredPhotos[]->{
+          _id, title, client, "type": category->title, "color": category->colorTheme.hex, specs, credits, "slug": slug.current, "heroImageUrl": heroImage.asset->url
+        },
+        "others": *[_type == "album" && !(_id in coalesce(*[_type == "siteSettings"][0].featuredPhotos[]._ref, []))] | order(_createdAt desc) {
+          _id, title, client, "type": category->title, "color": category->colorTheme.hex, specs, credits, "slug": slug.current, "heroImageUrl": heroImage.asset->url
+        }
       }
     `;
 
     const data = await client.fetch(query);
-    return data;
+    const featuredList = data.featured || [];
+    const othersList = data.others || [];
+
+    return [...featuredList, ...othersList];
   } catch (error) {
     console.error('Erro ao buscar álbuns para a grid:', error);
     return [];
@@ -35,16 +35,7 @@ export const fetchAlbumBySlug = async (slug) => {
   try {
     const query = `
       *[_type == "album" && slug.current == $slug][0] {
-        _id,
-        title,
-        client,
-        "type": category->title,
-        "color": category->colorTheme.hex,
-        date,
-        specs,
-        credits,
-        "heroImageUrl": heroImage.asset->url,
-        "galleryUrls": gallery[].asset->url
+        _id, title, client, "type": category->title, "color": category->colorTheme.hex, date, specs, credits, "heroImageUrl": heroImage.asset->url, "galleryUrls": gallery[].asset->url
       }
     `;
 
@@ -59,21 +50,21 @@ export const fetchAlbumBySlug = async (slug) => {
 export const fetchVideos = async () => {
   try {
     const query = `
-      *[_type == "video"] | order(_createdAt desc) {
-        _id,
-        title,
-        client,
-        "type": category->title,
-        "color": category->colorTheme.hex,
-        "slug": slug.current,
-        "thumbnailUrl": thumbnail.asset->url,
-        "previewUrl": previewVideo.asset->url,
-        videoUrl
+      {
+        "featured": *[_type == "siteSettings"][0].featuredVideos[]->{
+          _id, title, client, "type": category->title, "color": category->colorTheme.hex, "slug": slug.current, "thumbnailUrl": thumbnail.asset->url, "previewUrl": previewVideo.asset->url, videoUrl
+        },
+        "others": *[_type == "video" && !(_id in coalesce(*[_type == "siteSettings"][0].featuredVideos[]._ref, []))] | order(_createdAt desc) {
+          _id, title, client, "type": category->title, "color": category->colorTheme.hex, "slug": slug.current, "thumbnailUrl": thumbnail.asset->url, "previewUrl": previewVideo.asset->url, videoUrl
+        }
       }
     `;
 
     const data = await client.fetch(query);
-    return data;
+    const featuredList = data.featured || [];
+    const othersList = data.others || [];
+
+    return [...featuredList, ...othersList];
   } catch (error) {
     console.error('Erro ao buscar os clipes no Sanity:', error);
     return [];
@@ -82,11 +73,22 @@ export const fetchVideos = async () => {
 
 export const fetchCategories = async () => {
   try {
-    const query = `*[_type == "category"] | order(title asc) { _id, 
-        title, 
-        mediaType,
-        "color": colorTheme.hex }`;
-    return await client.fetch(query);
+    const query = `
+      {
+        "featured": *[_type == "siteSettings"][0].categoryOrder[]->{
+          _id, title, mediaType, "color": colorTheme.hex
+        },
+        "others": *[_type == "category" && !(_id in coalesce(*[_type == "siteSettings"][0].categoryOrder[]._ref, []))] | order(title asc) {
+          _id, title, mediaType, "color": colorTheme.hex
+        }
+      }
+    `;
+
+    const data = await client.fetch(query);
+    const featuredList = data.featured || [];
+    const othersList = data.others || [];
+
+    return [...featuredList, ...othersList];
   } catch (error) {
     console.error('Erro ao buscar categorias:', error);
     return [];
