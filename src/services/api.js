@@ -15,6 +15,7 @@ export const fetchAlbumsForGrid = async () => {
         title,
         client,
         "type": category->title,
+        "color": category->colorTheme.hex,
         specs,
         credits,
         "slug": slug.current,
@@ -38,6 +39,7 @@ export const fetchAlbumBySlug = async (slug) => {
         title,
         client,
         "type": category->title,
+        "color": category->colorTheme.hex,
         date,
         specs,
         credits,
@@ -62,6 +64,7 @@ export const fetchVideos = async () => {
         title,
         client,
         "type": category->title,
+        "color": category->colorTheme.hex,
         "slug": slug.current,
         "thumbnailUrl": thumbnail.asset->url,
         "previewUrl": previewVideo.asset->url,
@@ -79,7 +82,10 @@ export const fetchVideos = async () => {
 
 export const fetchCategories = async () => {
   try {
-    const query = `*[_type == "category"] | order(title asc) { _id, title, mediaType }`;
+    const query = `*[_type == "category"] | order(title asc) { _id, 
+        title, 
+        mediaType,
+        "color": colorTheme.hex }`;
     return await client.fetch(query);
   } catch (error) {
     console.error('Erro ao buscar categorias:', error);

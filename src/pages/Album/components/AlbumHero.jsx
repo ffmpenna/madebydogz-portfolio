@@ -18,7 +18,10 @@ export default function AlbumHero({ album }) {
           className="max-w-[1800px] mx-auto"
         >
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-[10px] font-mono bg-[#ce1e1e] text-white px-2 py-1 uppercase tracking-widest">
+            <span
+              className="text-[10px] font-mono bg-[#ce1e1e] text-white px-2 py-1 uppercase tracking-widest"
+              style={{ backgroundColor: album.color }}
+            >
               {album.type}
             </span>
             <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest">

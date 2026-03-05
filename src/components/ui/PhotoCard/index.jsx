@@ -7,6 +7,7 @@ export default function PhotoCard({
   client,
   slug,
   type,
+  color,
   specs,
   size,
 }) {
@@ -38,7 +39,10 @@ export default function PhotoCard({
 
       {/* Metadados Superiores */}
       <div className="absolute top-4 left-4 right-4 flex justify-between items-start opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100">
-        <span className="text-[10px] font-mono bg-[#ce1e1e] text-white px-1.5 py-0.5 uppercase tracking-widest">
+        <span
+          className="text-[10px] font-mono bg-[#ce1e1e] text-white px-1.5 py-0.5 uppercase tracking-widest"
+          style={{ backgroundColor: color }}
+        >
           {type}
         </span>
         <span className="text-[9px] font-mono text-white/70 uppercase tracking-widest border border-white/20 px-1 backdrop-blur-sm bg-black/30">

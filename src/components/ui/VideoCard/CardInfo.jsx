@@ -1,8 +1,11 @@
-export default function CardInfo({ type, title, client, index }) {
+export default function CardInfo({ type, color, title, client, index }) {
   return (
     <>
       <div className="relative group h-full">
-        <span className="absolute top-4 left-4 text-[10px] font-mono bg-[#ce1e1e] text-white px-1.5 py-0.5 uppercase tracking-widest opacity-100 group-hover:opacity-0 duration-300">
+        <span
+          className="absolute top-4 left-4 text-[10px] font-mono bg-[#ce1e1e] text-white px-1.5 py-0.5 uppercase tracking-widest opacity-100 group-hover:opacity-0 duration-300"
+          style={{ backgroundColor: color }}
+        >
           {type}
         </span>
         <div className="absolute bottom-0 z-10 p-6 mt-auto w-full bg-gradient-to-t from-black/90 to-transparent pt-12">
