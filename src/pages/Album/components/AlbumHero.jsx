@@ -1,12 +1,17 @@
 import { motion } from 'framer-motion';
 
 export default function AlbumHero({ album }) {
+  const hotspotX = album.heroImage.hotspot?.x || 0.5;
+  const hotspotY = album.heroImage.hotspot?.y || 0.5;
   return (
     <header className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
       <img
-        src={album.heroImageUrl}
+        src={album.heroImage.url}
         alt={album.title}
         className="w-full h-full object-cover"
+        style={{
+          objectPosition: `${hotspotX * 100}% ${hotspotY * 100}%`,
+        }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/40 to-transparent" />
 

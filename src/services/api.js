@@ -41,7 +41,10 @@ export const fetchAlbumBySlug = async (slug) => {
             name,
             instagram
           }
-        }, "heroImageUrl": heroImage.asset->url, "galleryUrls": gallery[].asset->url
+        }, "heroImage": {
+  "url": heroImage.asset->url,
+  "hotspot": heroImage.hotspot
+}, "galleryUrls": gallery[].asset->url
       }
     `;
 

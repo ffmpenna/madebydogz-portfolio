@@ -11,6 +11,7 @@ export default function PhotoCard({
   specs,
   size,
 }) {
+  console.log(heroImageUrl);
   const navigate = useNavigate();
   return (
     <motion.div
@@ -24,7 +25,7 @@ export default function PhotoCard({
     >
       {/* Imagem (Mobile: Cor | Desktop: PB -> Cor) */}
       <img
-        src={heroImageUrl}
+        src={`${heroImageUrl}?w=1000&q=80&auto=format`}
         alt={client}
         className="
           w-full h-full object-cover 
