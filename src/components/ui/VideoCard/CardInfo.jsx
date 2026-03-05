@@ -3,7 +3,7 @@ export default function CardInfo({ type, color, title, client, index }) {
     <>
       <div className="relative group h-full">
         <span
-          className="absolute top-4 left-4 text-[10px] font-mono bg-[#ce1e1e] text-white px-1.5 py-0.5 uppercase tracking-widest opacity-100 group-hover:opacity-0 duration-300"
+          className="absolute top-4 left-4 text-[10px] font-mono bg-[#b40001] text-white px-1.5 py-0.5 uppercase tracking-widest opacity-100 group-hover:opacity-0 duration-300"
           style={{ backgroundColor: color }}
         >
           {type}
