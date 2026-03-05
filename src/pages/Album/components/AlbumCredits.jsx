@@ -13,14 +13,31 @@ export default function AlbumCredits({ specs, credits }) {
           </div>
         )}
 
-        {credits.map((credit, index) => (
+        {credits.map((c, index) => (
           <div key={index}>
             <p className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mb-1">
-              {credit.role}
+              {c.role}
             </p>
-            <p className="text-sm font-mono text-white uppercase tracking-wider">
-              {credit.name}
-            </p>
+            {c.people?.map((person, pIdx) => (
+              <span className="font-mono" key={pIdx}>
+                {/* Link do Insta se tiver, apenas o texto se não tiver */}
+                {person.instagram ? (
+                  <a
+                    href={person.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-white hover:text-[#B40001] transition-colors"
+                  >
+                    {person.name}
+                  </a>
+                ) : (
+                  <span className="text-white">{person.name}</span>
+                )}
+
+                {/* Coloca uma vírgula se não for a última pessoa da lista */}
+                {pIdx < c.people.length - 1 && <span className="text-white/50">, </span>}
+              </span>
+            ))}
           </div>
         ))}
       </div>

@@ -35,7 +35,13 @@ export const fetchAlbumBySlug = async (slug) => {
   try {
     const query = `
       *[_type == "album" && slug.current == $slug][0] {
-        _id, title, client, "type": category->title, "color": category->colorTheme.hex, date, specs, credits, "heroImageUrl": heroImage.asset->url, "galleryUrls": gallery[].asset->url
+        _id, title, client, "type": category->title, "color": category->colorTheme.hex, date, specs, "credits": credits[]{
+          role,
+          "people": people[]->{
+            name,
+            instagram
+          }
+        }, "heroImageUrl": heroImage.asset->url, "galleryUrls": gallery[].asset->url
       }
     `;
 
