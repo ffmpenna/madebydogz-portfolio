@@ -7,28 +7,21 @@ export default function StoneDog({ modelPath = '/dog.glb', scale = 1 }) {
   const dogRef = useRef();
   const { scene } = useGLTF(modelPath);
 
-  // 1. CARREGANDO A TEXTURA (Coloque o caminho correto de onde você salvou na pasta public)
   const normalMap = useTexture('/stone_map.jpg');
 
   const clonedScene = useMemo(() => {
     const clone = scene.clone(true);
 
-    // 2. AJUSTANDO A ESCALA DA TEXTURA
-    // Se os poros ficarem muito grandes e esticados, aumente esses números (ex: 4, 4)
-    // Se ficarem muito pequenos, diminua (ex: 1, 1)
     normalMap.wrapS = THREE.RepeatWrapping;
     normalMap.wrapT = THREE.RepeatWrapping;
     normalMap.repeat.set(3, 3);
 
-    // 3. O NOVO MATERIAL COM O NORMAL MAP
     const stoneMaterial = new THREE.MeshStandardMaterial({
-      color: '#bdbdbd', // Cinza cimento
-      metalness: 0.05, // Quase zero, só pra luz dar um micro-brilho nas bordas
-      roughness: 0.9, // Bem fosco
-      normalMap: normalMap, // A mágica acontece aqui!
-      // Controla a fundura dos poros. Valores maiores = buracos mais fundos
+      color: '#ffffff',
+      metalness: 0.05,
+      roughness: 0.9,
+      normalMap: normalMap,
       normalScale: new THREE.Vector2(5, 5),
-      flatShading: true, // Deixa as faces mais planas, reforçando o estilo "esculpido" da pedra
     });
 
     clone.traverse((child) => {
@@ -39,7 +32,7 @@ export default function StoneDog({ modelPath = '/dog.glb', scale = 1 }) {
       }
     });
     return clone;
-  }, [scene, normalMap]); // Não esqueça de colocar o normalMap aqui nas dependências!
+  }, [scene, normalMap]);
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -66,5 +59,4 @@ export default function StoneDog({ modelPath = '/dog.glb', scale = 1 }) {
   );
 }
 
-// Preload do modelo (A textura o useTexture já cuida de forma otimizada com o Suspense)
 useGLTF.preload('/dog.glb');

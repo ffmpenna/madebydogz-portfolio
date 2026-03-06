@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { BackgroundGrid } from '@/components/ui';
 import CallingCard from '@/components/ui/CallingCard';
 
 export default function HomeBanner() {
