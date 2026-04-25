@@ -26,26 +26,31 @@ export default function VideoCard({
       viewport={{ once: true }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={() => window.open(videoUrl || 'https://www.youtube.com', '_blank')}
       className={`${size} relative border border-[#222] hover:border[#CE1E1E]/50 transition-colors group overflow-hidden cursor-pointer`}
     >
-      {/* Conteúdo do card de vídeo */}
-      <CardMedia
-        videoRef={videoRef} // Ref para o elemento de vídeo, usado para controlar a reprodução;
-        videoSrc={previewUrl}
-        thumbSrc={thumbnailUrl}
-        isPlaying={isPlaying} // Indica se o vídeo está atualmente tocando, usado para mostrar ou ocultar a miniatura;
-      />
+      <a
+        href={videoUrl || 'https://www.youtube.com'}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {/* Conteúdo do card de vídeo */}
+        <CardMedia
+          videoRef={videoRef} // Ref para o elemento de vídeo, usado para controlar a reprodução;
+          videoSrc={previewUrl}
+          thumbSrc={thumbnailUrl}
+          isPlaying={isPlaying} // Indica se o vídeo está atualmente tocando, usado para mostrar ou ocultar a miniatura;
+        />
 
-      {/* Rodapé do card de vídeo com as informações do clipe */}
-      <CardInfo
-        type={type}
-        color={color}
-        index={index}
-        title={title}
-        client={client}
-        isPlaying={isPlaying}
-      />
+        {/* Rodapé do card de vídeo com as informações do clipe */}
+        <CardInfo
+          type={type}
+          color={color}
+          index={index}
+          title={title}
+          client={client}
+          isPlaying={isPlaying}
+        />
+      </a>
     </motion.div>
   );
 }
