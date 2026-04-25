@@ -12,7 +12,10 @@ export default function HomeSection({
     >
       {/* Cabeçalho Original Restaurado */}
       <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 md:mb-5 gap-4 md:gap-0">
-        <h2 className="text-5xl sm:text-6xl md:text-[74px] font-black text-transparent stroke-text opacity-60 leading-none">
+        <h2
+          onClick={onButtonClick}
+          className="text-5xl sm:text-6xl md:text-[74px] text-[#B40001]/80 hover:text-[#B40001] hover:cursor-pointer font-black leading-none"
+        >
           {title}
         </h2>
         {span && (
