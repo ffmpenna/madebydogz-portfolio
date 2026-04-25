@@ -1,38 +1,33 @@
 import { useRef, useMemo, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { useGLTF, useTexture, Float, Center } from '@react-three/drei';
+// 1. Removemos o useTexture daqui, já que o cromo liso não usa imagens
+import { useGLTF, Float, Center } from '@react-three/drei';
 import * as THREE from 'three';
 
 export default function StoneDog({ modelPath = '/dog.glb', scale = 1 }) {
   const dogRef = useRef();
   const { scene } = useGLTF(modelPath);
 
-  const normalMap = useTexture('/stone_map.jpg');
-
   const clonedScene = useMemo(() => {
     const clone = scene.clone(true);
 
-    normalMap.wrapS = THREE.RepeatWrapping;
-    normalMap.wrapT = THREE.RepeatWrapping;
-    normalMap.repeat.set(3, 3);
-
-    const stoneMaterial = new THREE.MeshStandardMaterial({
-      color: '#ffffff',
-      metalness: 0.05,
-      roughness: 0.9,
-      normalMap: normalMap,
-      normalScale: new THREE.Vector2(5, 5),
+    // 2. A MÁGICA DO CROMO ESTÁ AQUI:
+    const chromeMaterial = new THREE.MeshStandardMaterial({
+      color: '#a7a7a7', // Base branca/prateada
+      metalness: 1.0, // 100% metal (obriga o material a refletir o ambiente)
+      roughness: 0.05, // Quase 0% de rugosidade (superfície lisa como um espelho)
+      envMapIntensity: 0.1, // Opcional: Dobra a força do reflexo para ficar bem estourado/brilhante
     });
 
     clone.traverse((child) => {
       if (child.isMesh) {
-        child.material = stoneMaterial;
+        child.material = chromeMaterial;
         child.castShadow = true;
         child.receiveShadow = true;
       }
     });
     return clone;
-  }, [scene, normalMap]);
+  }, [scene]); // Removemos o normalMap das dependências
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();

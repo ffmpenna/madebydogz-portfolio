@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Environment } from '@react-three/drei';
 import { EffectComposer, Bloom, Noise, Vignette } from '@react-three/postprocessing';
 import { ChromeDog, BackgroundElements } from './';
 
@@ -13,6 +13,7 @@ export default function Canva() {
       shadows
       className="touch-none"
     >
+      <Environment preset="city" resolution={256} />
       <Suspense>
         <color attach="background" args={['#050505']} />
         <fog attach="fog" args={['#050505', 5, 20]} />
