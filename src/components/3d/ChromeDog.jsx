@@ -1,6 +1,5 @@
 import { useRef, useMemo, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
-// 1. Removemos o useTexture daqui, já que o cromo liso não usa imagens
 import { useGLTF, Float, Center } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -11,7 +10,6 @@ export default function StoneDog({ modelPath = '/dog.glb', scale = 1 }) {
   const clonedScene = useMemo(() => {
     const clone = scene.clone(true);
 
-    // 2. A MÁGICA DO CROMO ESTÁ AQUI:
     const chromeMaterial = new THREE.MeshStandardMaterial({
       color: '#a7a7a7', // Base branca/prateada
       metalness: 1.0, // 100% metal (obriga o material a refletir o ambiente)
@@ -27,7 +25,7 @@ export default function StoneDog({ modelPath = '/dog.glb', scale = 1 }) {
       }
     });
     return clone;
-  }, [scene]); // Removemos o normalMap das dependências
+  }, [scene]);
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
