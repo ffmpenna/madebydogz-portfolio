@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home, LandingPage, NotFound, Archive, Album, About } from './pages';
+import { Home, NotFound, Archive, Album, About } from './pages';
 import { ScrollToTop } from './components';
 
 function App() {
@@ -7,8 +7,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
-        <Route index element={<LandingPage />} />
-        <Route path="/home" element={<Home />} />
+        <Route index path="/" element={<Home />} />
         <Route path="/archive" element={<Archive />} />
         <Route path="/album/:slug" element={<Album />} />
         <Route path="/about" element={<About />} />

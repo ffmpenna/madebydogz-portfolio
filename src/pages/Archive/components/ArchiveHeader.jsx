@@ -26,7 +26,7 @@ export default function ArchiveHeader({
       <div className="max-w-[1800px] mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex items-center gap-6 w-full md:w-auto">
           <button
-            onClick={() => navigate('/home')}
+            onClick={() => navigate('/')}
             className="group flex items-center gap-2 text-xs font-mono text-neutral-500 hover:text-white transition-colors uppercase"
           >
             <span className="group-hover:-translate-x-1 transition-transform">←</span>{' '}

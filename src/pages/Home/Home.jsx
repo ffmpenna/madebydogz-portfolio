@@ -14,7 +14,7 @@ export default function Home() {
       {/* Efeito para o fundo da página */}
       <BackgroundGrid />
       <div className="relative z-10 md:mx-20">
-        {/* Header simples para a página principal. Tem apenas a função de voltar à landingPage */}
+        {/* Header simples para a página principal.*/}
         <HomeHeader />
         <section className="min-h-[70vh] md:min-h-[80vh] flex flex-col justify-center px-4 md:px-20 relative py-15 md:py-20">
           {/* Banner estético e chamativo para a página principal */}
